@@ -11,10 +11,12 @@ router.post("/SignupPage", (req, res) => {
     res.redirect(307, "/auth/LoginPage");
   });
 });
-  
-router.post("/LoginPage", passport.authenticate("local"), (req, res) => {
-  console.log(req.user);
-  res.send("ok");
+
+router.post("/LoginPage", passport.authenticate("local"), {
+  successRedirect: '/',
+  failureRedirect: '/LoginPage',
+  failureFlash: true
 });
+
 
 module.exports = router;

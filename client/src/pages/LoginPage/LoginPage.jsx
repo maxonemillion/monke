@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import "./LoginPage.css"
 
 function LoginPage() {
   const [username, setUsername] = useState("")
@@ -23,21 +24,22 @@ function LoginPage() {
       <div>
         <Container>
           <Form>
+          <Form.Label>Welcome Back!</Form.Label>
             <Form.Group controlId="formBasicLogin">
-              <Form.Label>Username</Form.Label>
-              <Form.Control  type="login" placeholder="Name" value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <Form.Control  type="login" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
               <Form.Control  type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
+            <br></br>
             <Button className="mb-5" id="login" variant="primary" type="login" onClick={login}>
               Login
             </Button>
             <br></br>
             <Form.Label>Don't have an account? <Link to="/SignupPage">Sign up!</Link></Form.Label>
           </Form>
+          <br></br>
         </Container>
       </div>
     );
