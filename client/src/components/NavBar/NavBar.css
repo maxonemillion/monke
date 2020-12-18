@@ -23,4 +23,5 @@
 
 a:link {
   text-decoration: none!important;
+  text-shadow: 2px 2px 2px rgba(0, 7, 99, 0.248);
 }
