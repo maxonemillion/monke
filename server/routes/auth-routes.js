@@ -13,7 +13,6 @@ router.post("/SignupPage", (req, res) => {
 });
   
 router.post("/LoginPage", passport.authenticate("local"), (req, res) => {
-  console.log("hey");
   console.log(req.user);
   res.send("ok");
 });
