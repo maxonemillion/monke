@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
   const [username, setUsername] = useState("")
@@ -28,12 +29,14 @@ function LoginPage() {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>User Password</Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control  type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
             <Button className="mb-5" id="login" variant="primary" type="login" onClick={login}>
               Login
             </Button>
+            <br></br>
+            <Form.Label>Don't have an account? <Link to="/SignupPage">Sign up!</Link></Form.Label>
           </Form>
         </Container>
       </div>
