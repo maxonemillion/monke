@@ -9,7 +9,7 @@ function SignupPage() {
       <Container>
         <Form>
           <Form.Group controlId="formBasicSignup">
-            <Form.Label>Create User Name</Form.Label>
+            <Form.Label>Create Username</Form.Label>
             <Form.Control id="user-email" type="email" placeholder="Name" />
           </Form.Group>
 
@@ -26,7 +26,6 @@ function SignupPage() {
           </Form.Group>
           <Button
             className="mb-5"
-            disabled
             id="create-user-account"
             variant="primary"
             type="signup"
