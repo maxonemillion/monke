@@ -2,31 +2,34 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import "./SignupPage.css";
 
 function SignupPage() {
   return (
     <div>
       <Container>
         <Form>
-          <Form.Group controlId="formBasicSignup">
-            <Form.Label>Create Username</Form.Label>
-            <Form.Control id="user-email" type="email" placeholder="Name" />
+          <Form.Label>Create Account</Form.Label>
+          <Form.Group>
+            <Form.Control id="user-email" type="email" placeholder="Username" />
           </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Create Password</Form.Label>
+          <Form.Group>
             <Form.Control
               id="user-password"
               type="password"
               placeholder="Password"
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+          </Form.Group>
+          <Form.Group>
+            <Form.Control
+              id="user-repassword"
+              type="password"
+              placeholder="Re-enter password"
+            />
           </Form.Group>
           <Button
             className="mb-5"
-            id="create-user-account"
+            id="signup"
             variant="primary"
             type="signup"
           >
