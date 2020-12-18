@@ -2,6 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 import "./SignupPage.css";
 
 function SignupPage() {
@@ -27,6 +28,7 @@ function SignupPage() {
               placeholder="Re-enter password"
             />
           </Form.Group>
+          <br></br>
           <Button
             className="mb-5"
             id="signup"
@@ -35,7 +37,10 @@ function SignupPage() {
           >
             Signup
           </Button>
+          <br></br>
+          <Form.Label>Already have an account? <Link to="/LoginPage">Login!</Link></Form.Label>
         </Form>
+        <br></br>
       </Container>
     </div>
   );

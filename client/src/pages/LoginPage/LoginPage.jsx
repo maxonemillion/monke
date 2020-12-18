@@ -32,6 +32,7 @@ function LoginPage() {
             <Form.Group controlId="formBasicPassword">
               <Form.Control  type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
+            <br></br>
             <Button className="mb-5" id="login" variant="primary" type="login" onClick={login}>
               Login
             </Button>
