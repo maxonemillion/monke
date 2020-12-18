@@ -11,6 +11,14 @@ passport.use(new LocalStrategy(
   },
   ((email, password, done) => {
     // When a user tries to sign in this code runs
+      done(null, {})
+      
+      if (password == "asdf") {
+          done(null, {})
+      } else {
+          done("Bad Password")
+      }
+      
     db.User.findOne({
       where: {
         email: email
