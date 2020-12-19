@@ -1,0 +1,34 @@
+.card {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 15px;
+}
+
+.price {
+    margin-right: 60px;
+    border-color: transparent;
+}
+
+.btn {
+    margin-right: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.hyperCard {
+    color: black!important;
+}
+
+.hyperCard:link {
+    text-decoration: none;
+    text-shadow: none;
+    color: black!important;
+}
