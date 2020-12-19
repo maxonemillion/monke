@@ -3,6 +3,7 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 
 function HomePage() {
+<<<<<<< HEAD
   return (
     <div id="homePage">
       <h1>Welcome, Coders!</h1>
@@ -36,6 +37,14 @@ function HomePage() {
       </div>
     </div>
   );
+=======
+    return (
+        <div>
+            <h1>Home</h1>
+            <br></br>
+        </div>
+    )
+>>>>>>> 63c4eec482221475ffb20dd505efc8f293eeedc4
 }
 
 export default HomePage;

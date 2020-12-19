@@ -1,0 +1,43 @@
+.listing {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 15px;
+}
+
+.price {
+    margin-right: 60px;
+    border: none !important;
+}
+
+.listingPreview {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.btn {
+    margin-right: 20px;
+    margin-top: 5px
+}
+
+h2 {
+    text-align: center;
+}
+
+.hyperCard {
+    color: black !important;
+}
+
+.hyperCard:link {
+    text-decoration: none;
+    text-shadow: none;
+    color: black !important;
+}

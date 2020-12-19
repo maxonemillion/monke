@@ -7,7 +7,9 @@ function Footer() {
     <div>
       <footer className="footer">
         <span>
-          <h5>Made by Blue Team</h5>
+          <br></br>
+          <h5>Blue Team Productions</h5>
+          <br></br>
         </span>
       </footer>
     </div>

@@ -1,0 +1,13 @@
+.savedJob {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.hyperCard:link {
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.hyperCard {
+    color: black!important;
+}
