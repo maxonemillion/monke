@@ -21,7 +21,7 @@ function LoginPage() {
   }
 
     return (
-      <div>
+      <div className="loginForm">
         <Container>
           <Form>
           <Form.Label>Welcome Back!</Form.Label>

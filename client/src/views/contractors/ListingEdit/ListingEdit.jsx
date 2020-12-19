@@ -5,7 +5,7 @@ import ConfirmRemove from "../../../components/Alerts/RemoveListing/RemoveListin
 import "./ListingEdit.css"
 
 const ListingEdit = () => {
-    const [showConfirm, setShowConfirm ] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
 
     function displayConfirm() {
         setShowConfirm(!showConfirm);

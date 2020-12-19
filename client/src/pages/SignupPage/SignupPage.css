@@ -1,13 +1,20 @@
-/* #signup {
-    background-color: transparent!important;
-    color: #007bff!important;
-    border-color: transparent!important;
+.signupForm {
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
-#signup:hover {
-    color: green!important
-} */
+.signup {
+  text-align: center;
+}
 
+.nav-link {
+  border: none!important;
+}
+
+.nav-tabs {
+  border-bottom: none!important;
+  margin-bottom: -20px!important;
+}
 
 #signup {
     min-width: 130px;
