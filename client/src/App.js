@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
+import PostPage from "./pages/PostPage"
 import ContractorHome from "./views/contractors/HomePage/ContractorHome";
 import ClientHome from "./views/clients/HomePage/ClientHome";
 
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/LoginPage" component={LoginPage} />
           <Route exact path="/ContractorHome" component={ContractorHome} />
           <Route exact path="/ClientHome" component={ClientHome} />
+          <Route exact path="/PostPage" component={PostPage} />
         </Switch>
 
         <Footer />
