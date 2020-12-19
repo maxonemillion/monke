@@ -6,6 +6,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import PostPage from "./pages/PostPage"
 import ContractorHome from "./views/contractors/HomePage/ContractorHome";
+import ListingEdit from "./views/contractors/ListingEdit/ListingEdit";
 import ClientHome from "./views/clients/HomePage/ClientHome";
 
 import NavBar from "./components/NavBar";
@@ -27,7 +28,9 @@ function App() {
           <Route exact path="/LoginPage" component={LoginPage} />
           <Route exact path="/ContractorHome" component={ContractorHome} />
           <Route exact path="/ClientHome" component={ClientHome} />
+          <Route exact path="/ListingEdit" component={ListingEdit} />
           <Route exact path="/PostPage" component={PostPage} />
+
         </Switch>
 
         <Footer />

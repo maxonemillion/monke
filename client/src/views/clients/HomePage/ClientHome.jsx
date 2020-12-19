@@ -6,7 +6,7 @@ export default function ClientHome() {
   return (
     <div>
       <h2>Client home</h2>
-      <Card>
+      <Card className="savedJob">
         <a className="hyperCard" href="">
           <Card.Body className="text-lg-left">
             <Card.Title>Card Title</Card.Title>

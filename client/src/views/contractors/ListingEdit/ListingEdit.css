@@ -15,12 +15,8 @@
     border: none !important;
 }
 
-.listingPreview {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+.listingEdit {
+    -webkit-user-modify: read-write
 }
 
 .btn {
