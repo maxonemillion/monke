@@ -1,0 +1,13 @@
+.card {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.hyperCard:link {
+    text-decoration: none;
+    text-shadow: none;
+}
+
+.hyperCard {
+    color: black!important;
+}
