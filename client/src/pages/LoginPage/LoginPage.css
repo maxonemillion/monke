@@ -2,6 +2,12 @@
     background: transparent !important;
 }
 
+.loginForm {
+    text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
 #login {
     min-width: 120px;
     min-height: 30px;
@@ -33,7 +39,7 @@
 }
 
 #login:hover,
-.button:focus {
+#login:focus {
     color: #313133;
     transform: translateY(-6px);
 }

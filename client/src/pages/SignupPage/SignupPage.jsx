@@ -5,11 +5,11 @@ import "./SignupPage.css";
 
 function SignupPage() {
   return (
-    <div>
-      <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-        <Tab eventKey="home" title="Contractor">
+    <div className="signupForm">
+      <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="tabs">
+        <Tab eventKey="home" title="Contractor" className="tabs">
           <br/>
-          <Container>
+          <Container className="signup">
             <Form id="first">
               <Form.Label>Create Contractor Account</Form.Label>
               <Form.Group>
@@ -50,9 +50,9 @@ function SignupPage() {
             <br></br>
           </Container>
         </Tab>
-        <Tab eventKey="profile" title="Client">
+        <Tab eventKey="profile" title="Client" className="tabs">
           <br/>
-          <Container>
+          <Container className="signup">
             <Form id="link">
               <Form.Label>Create Client Account</Form.Label>
               <Form.Group>

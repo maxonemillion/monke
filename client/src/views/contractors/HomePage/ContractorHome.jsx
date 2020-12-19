@@ -10,7 +10,7 @@ export default function ContractorHome() {
         <a href="/ListingEdit" className="hyperCard">
           <Card.Body className="text-lg-left">
             <Row>
-            <Card.Title >React Website Design</Card.Title>
+            <Card.Title>React Website Design</Card.Title>
             <Card className="mb-2 text-muted price">$69 / h</Card>
             </Row>
             <Card.Subtitle className="mb-2 text-muted">Code Monkey LLC</Card.Subtitle>

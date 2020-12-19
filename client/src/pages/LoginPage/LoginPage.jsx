@@ -21,13 +21,7 @@ function LoginPage() {
   }
 
     return (
-<<<<<<< HEAD
-        <div>
-            <h1>Login Page</h1>
-        </div> 
-    )
-=======
-      <div>
+      <div className="loginForm">
         <Container>
           <Form>
           <Form.Label>Welcome Back!</Form.Label>
@@ -49,7 +43,6 @@ function LoginPage() {
         </Container>
       </div>
     );
->>>>>>> 63c4eec482221475ffb20dd505efc8f293eeedc4
 }
 
 export default LoginPage;

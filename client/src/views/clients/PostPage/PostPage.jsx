@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -7,16 +7,24 @@ import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "../PostPage/PostPage.css"
+import AlertDismissible from "../../../components/Alerts/JobPosted/JobPosted"
 
-function PostPage() {
+const PostPage = () => {
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  function displayConfirm() {
+    setShowConfirm(!showConfirm);
+  }
+  
   return (
     <div>
       <Container>
         <Row>
-          <Col className="border mx-3">
+          <Col className="postParams border mx-3">
             <div>
-              <Form.Group controlId="exampleForm.ControlSelect1">
-                <Form.Label>Type</Form.Label>
+              <Form.Group>
+                <Form.Label className="postType">Type</Form.Label>
                 <Form.Control id="type-end" as="select">
                   <option>Frontend</option>
                   <option>Backend</option>
@@ -24,7 +32,7 @@ function PostPage() {
                 </Form.Control>
               </Form.Group>
 
-              <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Group>
                 <Form.Label>Code Language</Form.Label>
                 <Form.Control id="lang" as="select">
                   <option>JavaScript</option>
@@ -44,7 +52,7 @@ function PostPage() {
                 </Form.Control>
               </Form.Group>
 
-              <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Group>
                 <Form.Label>Pay</Form.Label>
                 <Form.Control id="pay" as="select">
                   <option>Flat</option>
@@ -56,19 +64,21 @@ function PostPage() {
           </Col>
 
           <Col>
-            <div>
+            <div className="jobDescription">
               {/* generated card from post search */}
               <Card className="mx-3">
-                <Card.Header id="job-title" as="h5">Job Title</Card.Header>
-                <Card.Body>
+                <Card.Header id="job-title" as="h5" className="jobTitle">Job Title</Card.Header>
+                <Card.Body className="listingDescription">
                   <Card.Title id="pay-rate">Pay Rate</Card.Title>
                   <Card.Text id="job-description">
                     Job Description Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Aliquam?
                   </Card.Text>
-                  <Button id="save-job" variant="primary">Save Job</Button>
+                  <Button className="postJob" id="save-job" variant="primary" onClick={displayConfirm}>Post Job</Button>
                 </Card.Body>
               </Card>
+              {showConfirm ? <AlertDismissible
+                closeDisplay={() => displayConfirm()}/> : ""}
             </div>
           </Col>
         </Row>

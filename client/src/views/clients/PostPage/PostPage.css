@@ -1,0 +1,27 @@
+.border {
+    border-radius: .25rem!important;
+}
+
+.postType {
+    margin-top: 10px;
+}
+
+.postParams {
+    margin-bottom: 30px;
+}
+
+.jobDescription {
+    margin-bottom: 30px;
+}
+
+.listingDescription {
+    -webkit-user-modify: read-write
+}
+
+.jobTitle {
+    -webkit-user-modify: read-write
+}
+
+.postJob {
+    -webkit-user-modify: read-only;
+}
