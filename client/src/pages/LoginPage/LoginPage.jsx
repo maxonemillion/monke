@@ -21,6 +21,12 @@ function LoginPage() {
   }
 
     return (
+<<<<<<< HEAD
+        <div>
+            <h1>Login Page</h1>
+        </div> 
+    )
+=======
       <div>
         <Container>
           <Form>
@@ -43,6 +49,7 @@ function LoginPage() {
         </Container>
       </div>
     );
+>>>>>>> 63c4eec482221475ffb20dd505efc8f293eeedc4
 }
 
 export default LoginPage;
