@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../PostPage/PostPage.css"
 import AlertDismissible from "../../../components/Alerts/JobPosted/JobPosted"
+import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 const PostPage = () => {
   const [showConfirm, setShowConfirm] = useState(false);
@@ -34,22 +35,26 @@ const PostPage = () => {
 
               <Form.Group>
                 <Form.Label>Code Language</Form.Label>
-                <Form.Control id="lang" as="select">
-                  <option>JavaScript</option>
-                  <option>Python</option>
-                  <option>Swift</option>
-                  <option>HTML5</option>
-                  <option>SQL</option>
-                  <option>PHP</option>
-                  <option>Ruby</option>
-                  <option>C</option>
-                  <option>C++</option>
-                  <option>C#</option>
-                  <option>Visual Basic</option>
-                  <option>Java</option>
-                  <option>Objective C</option>
-                  <option>Perl</option>
-                </Form.Control>
+                <DropdownMultiselect
+                  id="lang"
+                  options={[
+                    "JavaScript",
+                    "Python",
+                    "Swift",
+                    "HTML5",
+                    "SQL",
+                    "PHP",
+                    "Ruby",
+                    "C",
+                    "C++",
+                    "C#",
+                    "Visual Basic",
+                    "Java",
+                    "Objective C",
+                    "Perl",
+                  ]}
+                  name="lang"
+                />
               </Form.Group>
 
               <Form.Group>
@@ -59,7 +64,9 @@ const PostPage = () => {
                   <option>Hourly</option>
                 </Form.Control>
               </Form.Group>
-              <Button id="search" className="mb-3">Search</Button>
+              <Button id="search" className="mb-3">
+                Search
+              </Button>
             </div>
           </Col>
 
@@ -67,18 +74,30 @@ const PostPage = () => {
             <div className="jobDescription">
               {/* generated card from post search */}
               <Card className="mx-3">
-                <Card.Header id="job-title" as="h5" className="jobTitle">Job Title</Card.Header>
+                <Card.Header id="job-title" as="h5" className="jobTitle">
+                  Job Title
+                </Card.Header>
                 <Card.Body className="listingDescription">
                   <Card.Title id="pay-rate">Pay Rate</Card.Title>
                   <Card.Text id="job-description">
                     Job Description Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Aliquam?
                   </Card.Text>
-                  <Button className="postJob" id="save-job" variant="primary" onClick={displayConfirm}>Post Job</Button>
+                  <Button
+                    className="postJob"
+                    id="save-job"
+                    variant="primary"
+                    onClick={displayConfirm}
+                  >
+                    Post Job
+                  </Button>
                 </Card.Body>
               </Card>
-              {showConfirm ? <AlertDismissible
-                closeDisplay={() => displayConfirm()}/> : ""}
+              {showConfirm ? (
+                <AlertDismissible closeDisplay={() => displayConfirm()} />
+              ) : (
+                ""
+              )}
             </div>
           </Col>
         </Row>
