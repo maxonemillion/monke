@@ -1,10 +1,5 @@
-node_modules
-build
+node_modules/
+build/
 .idea
-<<<<<<< HEAD
-package.json
-package-lock.json
-=======
 
 .eslintcache
->>>>>>> 63c4eec482221475ffb20dd505efc8f293eeedc4
