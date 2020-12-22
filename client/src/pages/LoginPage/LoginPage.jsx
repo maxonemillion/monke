@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import API from "../../util/API";
 import "./LoginPage.css"
 
 function LoginPage() {
@@ -12,7 +13,8 @@ function LoginPage() {
   function login(event) {
     event.preventDefault();
     console.log(username, password)
-
+    API.loginUser({username, password}).then(console.log)
+    
     if (username === "asdf") {
       console.log("logged in")
     } else {
