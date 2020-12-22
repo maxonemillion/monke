@@ -6,19 +6,25 @@ import { Link } from "react-router-dom";
 import API from "../../util/API";
 import "./LoginPage.css"
 
-function LoginPage() {
+const LoginPage = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  function login(event) {
+  const login = (event) => {
     event.preventDefault();
-    console.log(username, password)
-    API.loginUser({username, password}).then(console.log)
-    
-    if (username === "asdf") {
-      console.log("logged in")
-    } else {
-      console.log("error")
+    try {
+      const response = fetch(
+        '/api/users',
+        {
+          body: JSON.stringify({ email: username, password: password }),
+          method: 'POST',
+        }
+      );
+     
+      setUsername('');
+      setPassword('');
+    } catch (error) {
+      console.log(error);
     }
   }
 

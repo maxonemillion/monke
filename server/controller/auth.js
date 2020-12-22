@@ -1,8 +1,13 @@
+const { Users } = require("../models/")
+
 // mongoose.schema
 
 const auth = {
-    login: ({ username, password }) => {
-        console.log("Login", {username, password})
+    login: () => {
+        console.log("Login", { Users })
+        Users.create({
+            email: req.body.text
+        })
     }
 }
 
