@@ -13,10 +13,8 @@ const Navbars = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Button variant="primary" size="lg">
-              <Link style={{ color: "#ffffff" }} to="/LoginPage">
-                Login
-              </Link>
+            <Button variant="danger" size="lg" href="/LoginPage">
+              Login
             </Button>
           </Nav>
         </Navbar.Collapse>

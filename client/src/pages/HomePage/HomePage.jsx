@@ -10,9 +10,6 @@ const HomePage = () => {
   return (
     <div className="home-page" id="homePage">
       <div id="viewContent">
-        {/* <video autoPlay loop muted>
-          <source src={Binary} type="video/webm" />
-        </video> */}
         <Jumbotron>
           <h1 className="welcome display-3">Welcome, Coders!</h1>
           <Row>

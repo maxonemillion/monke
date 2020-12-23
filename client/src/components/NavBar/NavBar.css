@@ -1,9 +1,10 @@
 .brand {
   font-size: 45px;
+  color: rgb(0, 255, 221)!important;
 }
 
 .navbar {
-  /* background: transparent!important; */
+  background: transparent!important;
 }
 
 @media only screen and (max-width: 600px) {

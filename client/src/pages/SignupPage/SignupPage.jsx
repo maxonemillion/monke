@@ -75,7 +75,7 @@ const SignupPage = () => {
               </Button>
               <br></br>
               <Form.Label>
-                Already have an account? <Link to="/LoginPage">Login!</Link>
+                Already have an account? <Link to="/LoginPage" className="loginNow">Login!</Link>
               </Form.Label>
             </Form>
             <br></br>

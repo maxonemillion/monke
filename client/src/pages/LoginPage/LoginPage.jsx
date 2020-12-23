@@ -52,7 +52,7 @@ const LoginPage = () => {
               Login
             </Button>
             <br></br>
-            <Form.Label>Don't have an account? <Link to="/SignupPage">Sign up!</Link></Form.Label>
+            <Form.Label>Don't have an account? <Link to="/SignupPage" className="singupNow">Sign up!</Link></Form.Label>
           </Form>
           <br></br>
         </Container>

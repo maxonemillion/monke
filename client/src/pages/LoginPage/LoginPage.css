@@ -16,10 +16,9 @@
     letter-spacing: 1.3px;
     font-weight: 700;
     color: #313133;
-    background: linear-gradient(90deg, rgb(60, 105, 254) 0%, rgb(147, 171, 249) 100%);
+    background: linear-gradient(90deg, rgb(0, 255, 221) 0%, rgb(150, 255, 241) 100%);
     border: none;
     border-radius: 1000px;
-    box-shadow: 12px 12px 24px rgba(0, 7, 99, 0.248);
     transition: all 0.3s ease-in-out 0s;
     cursor: pointer;
     outline: none;
@@ -54,7 +53,7 @@
     width: 30px;
     height: 30px;
     border-radius: 100%;
-    border: 6px solid #0011ff;
+    border: 6px solid rgb(0, 255, 221);
     position: absolute;
     z-index: -1;
     top: 50%;

@@ -26,10 +26,20 @@ h1 {
   text-align: center;
 }
 
+.jumbotron {
+  background: transparent!important;
+}
+
+.welcome {
+  color: rgb(0, 255, 221)
+}
+
 .card {
   border: #343a40 solid 2px;
   border-radius: 15px;
 }
+
+
 
 @media only screen and (max-width: 320px) {
   .welcome {
