@@ -10,14 +10,15 @@ import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 const SearchJobs = () => {
   return (
-    <div>
+    <div className="search-jobs">
+      <h2 className="my-5 display-1">Search Jobs</h2>
       <Container>
-        <Row>
-          <Col className="jobParams border mx-3">
-            <div>
+        <Row className="p-0">
+          <Col className="jobParams ">
+            <Form className="jobs p-3">
               <Form.Group>
                 <Form.Label className="jobType">Type</Form.Label>
-                <Form.Control id="type-end" as="select">
+                <Form.Control className="option" id="type-end" as="select">
                   <option>Frontend</option>
                   <option>Backend</option>
                   <option>Both</option>
@@ -50,15 +51,15 @@ const SearchJobs = () => {
 
               <Form.Group>
                 <Form.Label>Pay</Form.Label>
-                <Form.Control id="pay" as="select">
+                <Form.Control className="option" id="pay" as="select">
                   <option>Flat</option>
                   <option>Hourly</option>
                 </Form.Control>
               </Form.Group>
-              <Button id="search" className="mb-3" href="/SearchResults">
+              <Button variant="primary" id="search" className="mb-3" href="/SearchResults">
                 Search
               </Button>
-            </div>
+            </Form>
           </Col>
         </Row>
       </Container>

@@ -12,13 +12,13 @@ const SearchResults = () => {
 
   return (
     <div className="search-results">
-      <h1 className="my-5 display-1">Search Results</h1>
+      <h2 className="my-5 display-1">Search Results</h2>
       <Container>
         <Card className="listing">
           <Card.Body className="text-lg-left">
             <Row>
               <Card.Title>
-                <h1>React Website Design</h1>
+                <h2>React Website Design</h2>
               </Card.Title>
 
               <Card.Subtitle className="mb-2  price">
