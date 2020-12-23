@@ -5,7 +5,7 @@ import "./NavBar.css";
 
 const Navbars = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
       <Container>
         <Navbar.Brand className="brand"  href="/">
           Project3
