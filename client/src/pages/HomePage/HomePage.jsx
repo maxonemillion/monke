@@ -2,7 +2,7 @@ import React from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 
-function HomePage() {
+const HomePage = () => {
   return (
     <div id="homePage">
       <h1>Welcome, Coders!</h1>
