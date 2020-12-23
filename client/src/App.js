@@ -14,6 +14,7 @@ import SearchResults from "./views/contractors/SearchResults"
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
@@ -23,7 +24,6 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
-
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/SignupPage" component={SignupPage} />
