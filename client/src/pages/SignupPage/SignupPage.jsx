@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Container, Form, Tabs, Tab } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./SignupPage.css";
 
@@ -9,15 +9,21 @@ const SignupPage = () => {
   const [password, setPassword] = useState("")
   const [role, setRole] = useState("")
 
+  const history = useHistory()
+
   const signup = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(
+      let response = await axios.post(
         "/api/users/signup",
           ({ email: username, password: password, role: role }),
-      ).then(res => {
-        console.log(res.data)
-      })
+      )
+      console.log(response)
+      if (role === "contractor") {
+        history.push("/ContractorHome")
+      } else {
+        history.push("/ClientHome")
+      }
     } catch (error) {
       console.log(error);
 
@@ -60,7 +66,7 @@ const SignupPage = () => {
               <br></br>
               <Button
                 className="mb-5"
-                id="contractor-signup"
+                id="signup"
                 variant="primary"
                 type="signup"
                 onClick={signup}
@@ -108,7 +114,7 @@ const SignupPage = () => {
               <br></br>
               <Button
                 className="mb-5"
-                id="client-signup"
+                id="signup"
                 variant="primary"
                 type="signup"
                 onClick={signup}

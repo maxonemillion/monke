@@ -1,11 +1,11 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Row } from "react-bootstrap";
 import "./ClientHome.css";
 
 export default function ClientHome() {
   return (
 <div>
-      <h2>Client Home</h2>
+      <h2>My Listings</h2>
       <Card className="listing">
         <a href="/ListingEdit" className="hyperCard">
           <Card.Body className="text-lg-left">
