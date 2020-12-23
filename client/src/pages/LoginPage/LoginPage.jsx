@@ -2,27 +2,34 @@ import React, { useState } from 'react'
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import API from "../../util/API";
+import axios from "axios";
 import "./LoginPage.css"
 
 const LoginPage = () => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
-  const login = (event) => {
+  const history = useHistory()
+
+  const login = async (event) => {
     event.preventDefault();
     try {
-      const response = fetch(
-        '/api/users',
-        {
-          body: JSON.stringify({ email: username, password: password }),
-          method: 'POST',
+      let response = await axios.post(
+        "/api/users/login",      
+        ({ email: username, password: password }),
+        );
+      console.log(response);
+      if (response.data.auth) {
+        if (response.data.role === "contractor") {
+          history.push("/ContractorHome")
+        } else {
+          history.push("/ClientHome")
         }
-      );
-     
-      setUsername('');
-      setPassword('');
+      } else {
+        alert(response.data.message)
+      }
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +41,7 @@ const LoginPage = () => {
           <Form>
           <Form.Label>Welcome Back!</Form.Label>
             <Form.Group controlId="formBasicLogin">
-              <Form.Control  type="login" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <Form.Control  type="email" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">

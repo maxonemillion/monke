@@ -1,34 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Container, Form, Tabs, Tab } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./SignupPage.css";
 
-function SignupPage() {
+const SignupPage = () => {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [role, setRole] = useState("")
+
+  const signup = async (event) => {
+    event.preventDefault();
+    try {
+      await axios.post(
+        "/api/users/signup",
+          ({ email: username, password: password, role: role }),
+      ).then(res => {
+        console.log(res.data)
+      })
+    } catch (error) {
+      console.log(error);
+
+    }
+  }
+
   return (
     <div className="signupForm">
       <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="tabs">
-        <Tab eventKey="home" title="Contractor" className="tabs">
+        <Tab eventKey="home" title="Contractor" className="tabs" onSelect={() => setRole("contractor")}>
           <br/>
           <Container className="signup">
             <Form id="first">
               <Form.Label>Create Contractor Account</Form.Label>
               <Form.Group>
                 <Form.Control
-                  id="user-email"
+                  id="contractor-email"
                   type="email"
                   placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </Form.Group>
               <Form.Group>
                 <Form.Control
-                  id="user-password"
+                  id="contractor-password"
                   type="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
               <Form.Group>
                 <Form.Control
-                  id="user-repassword"
+                  id="contractor-repassword"
                   type="password"
                   placeholder="Re-enter password"
                 />
@@ -36,9 +60,10 @@ function SignupPage() {
               <br></br>
               <Button
                 className="mb-5"
-                id="signup"
+                id="contractor-signup"
                 variant="primary"
                 type="signup"
+                onClick={signup}
               >
                 Signup
               </Button>
@@ -50,28 +75,32 @@ function SignupPage() {
             <br></br>
           </Container>
         </Tab>
-        <Tab eventKey="profile" title="Client" className="tabs">
+        <Tab eventKey="profile" title="Client" className="tabs" onSelect={() => setRole("client")}>
           <br/>
           <Container className="signup">
             <Form id="link">
               <Form.Label>Create Client Account</Form.Label>
               <Form.Group>
                 <Form.Control
-                  id="user-email"
+                  id="client-email"
                   type="email"
                   placeholder="Username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </Form.Group>
               <Form.Group>
                 <Form.Control
-                  id="user-password"
+                  id="client-password"
                   type="password"
                   placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Form.Group>
               <Form.Group>
                 <Form.Control
-                  id="user-repassword"
+                  id="client-repassword"
                   type="password"
                   placeholder="Re-enter password"
                 />
@@ -79,9 +108,10 @@ function SignupPage() {
               <br></br>
               <Button
                 className="mb-5"
-                id="signup"
+                id="client-signup"
                 variant="primary"
                 type="signup"
+                onClick={signup}
               >
                 Signup
               </Button>
