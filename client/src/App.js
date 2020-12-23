@@ -11,6 +11,8 @@ import ClientHome from "./views/clients/HomePage/ClientHome";
 import SearchJobs from "./views/contractors/SearchJobs"
 import SearchResults from "./views/contractors/SearchResults"
 
+import BackgroundVideo from "./components/BackgroundVideo/BackgroundVideo"
+
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
@@ -22,6 +24,7 @@ import "./App.css";
 function App() {
   return (
     <Router>
+      <BackgroundVideo />
       <div className="App">
         <NavBar />
         <Switch>

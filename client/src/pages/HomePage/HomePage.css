@@ -1,27 +1,32 @@
 video {
-    position: fixed;
-    width: 100%;
-    left: 50%;
-    top: 50%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  }
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
 
-  h1 {
-      color: #307acf;
-      /* color:#DB4124; */
-  }
+h1 {
+  color: #307acf;
+  /* color:#DB4124; */
+}
 
- #homePage{
-      display: flex;
-      align-content: center;
-      justify-content: center;
-      margin-top: 180px;
-  }
+.home-page {
+  /* display: flex; */
+  /* align-content: center; */
+  /* justify-content: center; */
+  margin-top: 10px;
+  background: none;
+}
 
-  #viewContent{
-      text-align: center;
-  }
+#viewContent {
+  text-align: center;
+}
 
+.card {
+  border: #343a40 solid 2px;
+  border-radius: 15px;
+}
