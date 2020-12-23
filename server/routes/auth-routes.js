@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Users } = require('../models');
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const jwt = require("jsonwebtoken")
 
 // /api/users/
 router
@@ -34,7 +35,10 @@ router
         if (data) {
           bcrypt.compare(req.body.password, data.password, function (err, passwordsMatch) {
             if (passwordsMatch) {
-              res.json({ auth: true, role: data.role })
+
+              let token = jwt.sign(data.email, process.env.JWTSCRT)
+              
+              res.json({ auth: true, role: data.role, token })
             } else {
                 res.json({ auth: false, message: "Invalid password"});
               }

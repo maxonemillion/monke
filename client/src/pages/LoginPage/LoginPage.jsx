@@ -22,6 +22,7 @@ const LoginPage = () => {
         );
       console.log(response);
       if (response.data.auth) {
+        localStorage.setItem("JWTSCRT", response.data.token)
         if (response.data.role === "contractor") {
           history.push("/ContractorHome")
         } else {
