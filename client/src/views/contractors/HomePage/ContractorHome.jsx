@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button, Card, Row } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import "./ContractorHome.css"
 
 export default function ContractorHome() {
   return (
     <div>
-      <h2>Contractor home</h2>
+      <h2>Saved Jobs</h2>
       <Card className="savedJob">
         <a className="hyperCard" href="">
           <Card.Body className="text-lg-left">
