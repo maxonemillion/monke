@@ -1,23 +1,48 @@
 const router = require('express').Router();
 const { Users } = require('../models');
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
-// restful api
 // /api/users/
 router
-  .post("/api/users", (req, res) => {
-    console.log({ reqBody: req.body });
-
-    Users
-      .create({
-        email: req.body.email,
-        password: req.body.password
-      })
-      .then(data => {
-        res.json({ success: true, data });
-      })
-      .catch(err => {
-        res.json({ success: false });
-      });
+  .route("/signup")
+  .post((req, res) => {
+    console.log("TEST", req.body);
+    bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
+      Users
+        .create({
+          ...req.body,
+          password: hash
+        })
+        .then(data => {
+          res.json({ success: true, data });
+        })
+        .catch(err => {
+          console.log(err);
+          res.json({ success: false });
+        });
+    })
   });
+
+router
+  .route("/login")
+  .post((req, res) => {
+    Users
+      .findOne({
+        email: req.body.email,
+      }).then(data => {
+        if (data) {
+          bcrypt.compare(req.body.password, data.password, function (err, passwordsMatch) {
+            if (passwordsMatch) {
+              res.json({ auth: true, role: data.role })
+            } else {
+                res.json({ auth: false, message: "Invalid password"});
+              }
+          })
+        } else {
+          res.json({ auth: false, message: "User not found"});
+        }
+    })
+  })
 
 module.exports = router;
