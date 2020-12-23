@@ -13,10 +13,6 @@ const Navbar = () => {
         <li className="Navbar-link">
           <Link to="/LoginPage">Login</Link>
         </li>
-
-        <li className="Navbar-link">
-          <Link to="/PostPage">PostPage</Link>
-        </li>
       </ul>
     </nav>
   );
