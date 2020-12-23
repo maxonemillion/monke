@@ -14,7 +14,7 @@ const HomePage = () => {
           <source src={Binary} type="video/webm" />
         </video> */}
         <Jumbotron>
-          <h1 className="display-1">Welcome, Coders!</h1>
+          <h1 className="welcome display-3">Welcome, Coders!</h1>
           <Row>
             <Col>
               <Button size="lg" id="getStarted" variant="danger">
@@ -36,7 +36,7 @@ const HomePage = () => {
                   <Card.Title>
                     <h2>Card Title</h2>
                   </Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
+                  <Card.Subtitle className="mb-2">
                     Card Subtitle
                   </Card.Subtitle>
                   <Card.Text>
@@ -53,7 +53,7 @@ const HomePage = () => {
                   <Card.Title>
                     <h2>Card Title</h2>
                   </Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
+                  <Card.Subtitle className="mb-2">
                     Card Subtitle
                   </Card.Subtitle>
                   <Card.Text>
