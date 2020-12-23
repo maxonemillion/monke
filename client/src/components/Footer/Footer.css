@@ -3,6 +3,8 @@
   text-align: center;
   border-top: solid black 1px;
   font-family: copperplate;
+  background-color: #343a40;
+  color: white;
 }
 
 .footer span {
