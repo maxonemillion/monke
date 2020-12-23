@@ -41,3 +41,9 @@ h2 {
     text-shadow: none;
     color: black !important;
 }
+
+.postPageRow {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 65px;
+}
