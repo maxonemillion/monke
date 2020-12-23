@@ -8,7 +8,7 @@ const Navbars = () => {
     <Navbar bg="dark" variant="dark" expand="lg" className="navbar">
       <Container>
         <Navbar.Brand className="brand"  href="/">
-          Project3
+          monkë
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
