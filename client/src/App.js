@@ -6,7 +6,7 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import PostPage from "./views/clients/PostPage"
 import ContractorHome from "./views/contractors/HomePage/ContractorHome";
-import ListingEdit from "./views/contractors/ListingEdit/ListingEdit";
+import ListingEdit from "./views/clients/ListingEdit/ListingEdit";
 import ClientHome from "./views/clients/HomePage/ClientHome";
 
 import NavBar from "./components/NavBar";
