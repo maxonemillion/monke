@@ -1,6 +1,10 @@
 .listing {
     margin-left: 50px;
     margin-right: 50px;
+    background-color: #6c757d;
+    color: white;
+    border: #343a40 solid 2px;
+    border-radius: 15px;
 }
 
 .row {
@@ -11,15 +15,14 @@
 }
 
 .price {
-    margin-right: 60px;
-    border: none !important;
+
 }
 
 .listingPreview {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
 }
 
@@ -40,4 +43,14 @@ h2 {
     text-decoration: none;
     text-shadow: none;
     color: black !important;
+}
+
+.search-results {
+    /* color: white; */
+    text-align: center;
+}
+
+hr {
+    border-bottom: #343a40 solid 1px;
+    margin-top: 0px;
 }
