@@ -8,6 +8,8 @@ import PostPage from "./views/clients/PostPage"
 import ContractorHome from "./views/contractors/HomePage/ContractorHome";
 import ListingEdit from "./views/clients/ListingEdit/ListingEdit";
 import ClientHome from "./views/clients/HomePage/ClientHome";
+import SearchJobs from "./views/contractors/SearchJobs"
+import SearchResults from "./views/contractors/SearchResults"
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -27,6 +29,8 @@ function App() {
           <Route exact path="/SignupPage" component={SignupPage} />
           <Route exact path="/LoginPage" component={LoginPage} />
           <Route exact path="/ContractorHome" component={ContractorHome} />
+          <Route exact path="/SearchJobs" component={SearchJobs} />
+          <Route exact path="/SearchResults" component={SearchResults} />
           <Route exact path="/ClientHome" component={ClientHome} />
           <Route exact path="/ListingEdit" component={ListingEdit} />
           <Route exact path="/PostPage" component={PostPage} />

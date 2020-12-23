@@ -2,11 +2,12 @@ import React from 'react';
 import { Button, Card } from "react-bootstrap";
 import "./ContractorHome.css"
 
-export default function ContractorHome() {
+const ContractorHome = () => {
   return (
     <div>
-      <h2>Saved Jobs</h2>
-      <Card className="savedJob">
+      <h2>You have not saved any jobs yet!</h2>
+      <Button href="/SearchJobs" className="searchJobs">Search for jobs</Button>
+      {/* <Card className="savedJob">
         <a className="hyperCard" href="">
           <Card.Body className="text-lg-left">
             <Card.Title>Card Title</Card.Title>
@@ -20,7 +21,9 @@ export default function ContractorHome() {
             <Button>Save</Button>
           </Card.Body>
         </a>
-      </Card>
+      </Card> */}
     </div>
   );
 }
+
+export default ContractorHome;

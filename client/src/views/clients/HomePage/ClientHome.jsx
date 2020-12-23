@@ -1,9 +1,13 @@
 import React from "react";
 import { Button, Card, Row } from "react-bootstrap";
+
+import ContractorHome from "../../contractors/HomePage/ContractorHome";
+
 import { Link } from "react-router-dom";
+
 import "./ClientHome.css";
 
-export default function ClientHome() {
+const ClientHome = () => {
   return (
     <div>
       <Row className="postPageRow">
@@ -40,3 +44,5 @@ export default function ClientHome() {
     </div>
   );
 }
+
+export default ClientHome;

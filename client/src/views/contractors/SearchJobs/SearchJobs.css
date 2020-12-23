@@ -1,0 +1,11 @@
+.border {
+    border-radius: .25rem!important;
+}
+
+.jobType {
+    margin-top: 10px;
+}
+
+.jobParams {
+    margin-bottom: 30px;
+}
