@@ -14,12 +14,9 @@ const HomePage = () => {
           <h1 className="welcome display-3">Welcome, Coders!</h1>
           <Row>
             <Col>
+              <br></br>
               <Button size="lg" id="getStarted" variant="danger">
                 Get Started!
-              </Button>
-
-              <Button size="lg" id="loginHome" variant="secondary">
-                Login Here!
               </Button>
             </Col>
           </Row>
