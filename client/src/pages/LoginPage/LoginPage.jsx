@@ -42,18 +42,18 @@ const LoginPage = () => {
           <Form>
           <Form.Label>Welcome Back!</Form.Label>
             <Form.Group controlId="formBasicLogin">
-              <Form.Control  type="email" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <Form.Control  type="email" placeholder="Username" value={username} className="login-email" onChange={(e) => setUsername(e.target.value)}/>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control  type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <Form.Control  type="password" placeholder="Password" value={password} className="login-password" onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
             <br></br>
             <Button className="mb-5" id="login" variant="primary" type="login" onClick={login}>
               Login
             </Button>
             <br></br>
-            <Form.Label>Don't have an account? <Link to="/SignupPage" className="singupNow">Sign up!</Link></Form.Label>
+            <Form.Label className="alreadyHave">Don't have an account? <Link to="/SignupPage" className="singupNow">Sign up!</Link></Form.Label>
           </Form>
           <br></br>
         </Container>
