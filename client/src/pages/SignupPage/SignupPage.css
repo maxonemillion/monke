@@ -11,10 +11,21 @@
   border: none!important;
 }
 
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  background-color: transparent!important;
+  backdrop-filter: blur(25px)
+}
+
 .nav-tabs {
   border-bottom: none!important;
   margin-bottom: -20px!important;
 }
+
+#contractor-email, #contractor-password, #client-email, #client-password, #contractor-repassword, #client-repassword {
+  backdrop-filter: blur(10px);
+}
+
+
 
 #signup {
     min-width: 130px;
@@ -85,5 +96,7 @@
     }
   }
   
-
+.form-label {
+  color: rgb(0, 255, 221)!important;
+}
   

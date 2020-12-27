@@ -9,11 +9,6 @@ video {
   z-index: -1;
 }
 
-h1 {
-  color: #307acf;
-  /* color:#DB4124; */
-}
-
 .home-page {
   /* display: flex; */
   /* align-content: center; */
@@ -42,6 +37,9 @@ h1 {
 .listing {
   margin-top: -50px;
   margin-bottom: 50px;
+  background: transparent!important;
+  backdrop-filter: blur(25px);
+  border-color: rgb(0, 255, 221)!important;
 }
 
 @media only screen and (max-width: 320px) {

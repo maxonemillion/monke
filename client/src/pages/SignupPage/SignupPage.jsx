@@ -122,7 +122,7 @@ const SignupPage = () => {
                 Signup
               </Button>
               <br></br>
-              <Form.Label>
+              <Form.Label className="alreadyHave">
                 Already have an account? <Link to="/LoginPage">Login!</Link>
               </Form.Label>
             </Form>

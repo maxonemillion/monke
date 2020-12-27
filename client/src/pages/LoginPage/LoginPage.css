@@ -8,6 +8,10 @@
     margin-right: 25px;
 }
 
+.login-email, .login-password {
+    backdrop-filter: blur(10px);
+}
+
 #login {
     min-width: 120px;
     min-height: 30px;
@@ -80,4 +84,14 @@
         height: 200px;
         opacity: 0;
     }
+
+}
+
+.alreadyHave {
+    color: rgb(0, 255, 221)!important;
+}
+
+a {
+    text-decoration: none!important;
+    color: rgb(0, 255, 221)!important;
 }
