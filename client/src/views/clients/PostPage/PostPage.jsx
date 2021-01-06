@@ -64,17 +64,17 @@ const PostPage = () => {
               
             <Form.Group>
                 <Form.Label>Company Name</Form.Label>
-                 <Form.Control type="text" placeholder="Enter Company Name" name="company" onChange={handleInput} />
+                 <Form.Control className= "input-bar" type="text" placeholder="Enter Company Name" name="company" onChange={handleInput} />
                  </Form.Group>
 
                  <Form.Group>
                 <Form.Label>Job Title</Form.Label>
-                 <Form.Control type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
+                 <Form.Control className= "input-bar" type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
                  </Form.Group>
 
               <Form.Group>
                 <Form.Label className="postType">Type</Form.Label>
-                <Form.Control id="type-end" as="select" name = "workType" onChange={handleInput}>
+                <Form.Control className= "input-bar" id="type-end" as="select" name = "workType" onChange={handleInput}>
                   <option>Frontend</option>
                   <option>Backend</option>
                   <option>Both</option>
@@ -83,7 +83,7 @@ const PostPage = () => {
 
               <Form.Group>
                 <Form.Label>Code Language</Form.Label>
-                <Form.Control id="type-end" as="select" name = "language" onChange={handleInput}>
+                <Form.Control className= "input-bar" id="type-end" as="select" name = "language" onChange={handleInput}>
                   <option>JavaScript</option>
                   <option>HTML</option>
                   <option>React</option>
@@ -96,7 +96,7 @@ const PostPage = () => {
               </Form.Group>
               <Form.Group>
                 <Form.Label>Pay</Form.Label>
-                <Form.Control id="pay" as="select" name ="payRate" onChange={handleInput}>
+                <Form.Control className="input-bar" id="pay" as="select" name ="payRate" onChange={handleInput}>
                   <option>Flat</option>
                   <option>Hourly</option>
                 </Form.Control>
@@ -116,7 +116,7 @@ const PostPage = () => {
           <Col>
             <div className="jobDescription">
               {/* generated card from post search */}
-              <Card className="mx-3">
+              {/* <Card className="mx-3">
                 <Card.Header id="job-title" as="h5" className="jobTitle">
                   Job Title
                 </Card.Header>
@@ -135,7 +135,7 @@ const PostPage = () => {
                     Post Job
                   </Button>
                 </Card.Body>
-              </Card>
+              </Card> */}
               {showConfirm ? (
                 <AlertDismissible closeDisplay={() => displayConfirm()} />
               ) : (
