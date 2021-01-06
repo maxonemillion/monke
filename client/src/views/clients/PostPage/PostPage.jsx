@@ -60,7 +60,7 @@ const PostPage = () => {
     <div>
       <Container>
         <Row>
-          <Col className="postParams border mx-3">
+          <Col className="form-group">
             <div>
               
             <Form.Group>
@@ -107,46 +107,9 @@ const PostPage = () => {
                   <option>Hourly</option>
                 </Form.Control>
               </Form.Group>
-
-
-              <Button id="search" className="mb-3">
-                Search
-              </Button>
               <Button id="addJob" className="mb-3" onClick = {addJob}>
-                Add Job
+                Post Job
               </Button>
-            </div>
-          </Col>
-
-
-          <Col>
-            <div className="jobDescription">
-              {/* generated card from post search */}
-              <Card className="mx-3">
-                <Card.Header id="job-title" as="h5" className="jobTitle">
-                  Job Title
-                </Card.Header>
-                <Card.Body className="listingDescription">
-                  <Card.Title id="pay-rate">Pay Rate</Card.Title>
-                  <Card.Text id="job-description">
-                    Job Description Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Aliquam?
-                  </Card.Text>
-                  <Button
-                    className="postJob"
-                    id="post-job"
-                    variant="primary"
-                    onClick={displayConfirm}
-                  >
-                    Post Job
-                  </Button>
-                </Card.Body>
-              </Card>
-              {showConfirm ? (
-                <AlertDismissible closeDisplay={() => displayConfirm()} />
-              ) : (
-                ""
-              )}
             </div>
           </Col>
         </Row>

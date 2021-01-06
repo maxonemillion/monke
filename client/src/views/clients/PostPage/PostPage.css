@@ -1,5 +1,14 @@
+.form-group {
+    backdrop-filter: blur(10px);
+    padding: 10px;
+}
+
 .border {
     border-radius: .25rem!important;
+}
+
+#addJob {
+    
 }
 
 .postType {
