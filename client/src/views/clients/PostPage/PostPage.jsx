@@ -32,6 +32,7 @@ const PostPage = () => {
 ])
   const [formData, setFormData] = useState({
     company:"",
+    jobDescription:"",
     jobTitle:"",
     workType:"",
     language:"",
@@ -63,13 +64,18 @@ const PostPage = () => {
             <div>
               
             <Form.Group>
+                <Form.Label>Job Title</Form.Label>
+                 <Form.Control type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
+                 </Form.Group>
+
+            <Form.Group>
                 <Form.Label>Company Name</Form.Label>
                  <Form.Control type="text" placeholder="Enter Company Name" name="company" onChange={handleInput} />
                  </Form.Group>
 
                  <Form.Group>
-                <Form.Label>Job Title</Form.Label>
-                 <Form.Control type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
+                <Form.Label>Job Description</Form.Label>
+                 <Form.Control type="text" placeholder="Job Description" name = "jobDescription" onChange={handleInput} />
                  </Form.Group>
 
               <Form.Group>
