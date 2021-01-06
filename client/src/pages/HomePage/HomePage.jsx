@@ -15,7 +15,7 @@ const HomePage = () => {
           <Row>
             <Col>
               <br></br>
-              <Button size="lg" id="getStarted" variant="danger">
+              <Button size="lg" id="getStarted" variant="danger" href="/SignupPage">
                 Get Started!
               </Button>
             </Col>
