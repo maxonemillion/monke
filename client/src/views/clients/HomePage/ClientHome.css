@@ -13,9 +13,15 @@
 .price {
     margin-right: 60px;
     border: none !important;
+    background: transparent;
+}
+
+.card-title {
+    color: white;
 }
 
 .listingPreview {
+    color: white;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
