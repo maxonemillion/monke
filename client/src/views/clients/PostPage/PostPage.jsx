@@ -14,42 +14,42 @@ import axios from "axios"
 import API from "../../../util/API"
 const PostPage = () => {
   const [showConfirm, setShowConfirm] = useState(false);
- const [options, setOptions] = useState([
-  "JavaScript",
-  "Python",
-  "Swift",
-  "HTML5",
-  "SQL",
-  "PHP",
-  "Ruby",
-  "C",
-  "C++",
-  "C#",
-  "Visual Basic",
-  "Java",
-  "Objective C",
-  "Perl",
-])
+  const [options, setOptions] = useState([
+    "JavaScript",
+    "Python",
+    "Swift",
+    "HTML5",
+    "SQL",
+    "PHP",
+    "Ruby",
+    "C",
+    "C++",
+    "C#",
+    "Visual Basic",
+    "Java",
+    "Objective C",
+    "Perl",
+  ])
   const [formData, setFormData] = useState({
-    company:"",
-    jobDescription:"",
-    jobTitle:"",
-    workType:"",
-    language:"",
-    payRate:""
+    company: "",
+    jobDescription: "",
+    jobTitle: "",
+    workType: "",
+    language: "",
+    payRate: ""
   })
-  const displayConfirm= () => {
+  const displayConfirm = () => {
     setShowConfirm(!showConfirm);
   }
-  
-  const handleInput = (event) => {
-     const {name, value } = event.target
-     setFormData({
-       ...formData, [name]:value
-     })
 
-     console.log(value)
-     
+  const handleInput = (event) => {
+    const { name, value } = event.target
+    setFormData({
+      ...formData, [name]: value
+    })
+
+    console.log(value)
+
   }
   const addJob = () => {
     API.newJobs(formData).then(results => {
@@ -62,30 +62,27 @@ const PostPage = () => {
         <Row>
           <Col className="form-group">
             <div>
-              
-            <Form.Group>
-                <Form.Label>Job Title</Form.Label>
-                 <Form.Control type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
-                 </Form.Group>
 
-            <Form.Group>
+              <Form.Group>
+                <Form.Label>Job Title</Form.Label>
+                <Form.Control className="input-bar" type="text" placeholder="Job Title" name="jobTitle" onChange={handleInput} />
+              </Form.Group>
+
+              <Form.Group>
                 <Form.Label>Company Name</Form.Label>
-                 <Form.Control className= "input-bar" type="text" placeholder="Enter Company Name" name="company" onChange={handleInput} />
-                 </Form.Group>
+                <Form.Control className="input-bar" type="text" placeholder="Enter Company Name" name="company" onChange={handleInput} />
+              </Form.Group>
 
-                 <Form.Group>
-
-                <Form.Label>Job Title</Form.Label>
-                 <Form.Control className= "input-bar" type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
+              <Form.Group>
 
                 <Form.Label>Job Description</Form.Label>
-                 <Form.Control type="text" placeholder="Job Description" name = "jobDescription" onChange={handleInput} />
+                <Form.Control className="input-bar" type="text" placeholder="Job Description" name="jobDescription" onChange={handleInput} />
 
-                 </Form.Group>
+              </Form.Group>
 
               <Form.Group>
                 <Form.Label className="postType">Type</Form.Label>
-                <Form.Control className= "input-bar" id="type-end" as="select" name = "workType" onChange={handleInput}>
+                <Form.Control className="input-bar" id="type-end" as="select" name="workType" onChange={handleInput}>
                   <option>Frontend</option>
                   <option>Backend</option>
                   <option>Both</option>
@@ -94,7 +91,7 @@ const PostPage = () => {
 
               <Form.Group>
                 <Form.Label>Code Language</Form.Label>
-                <Form.Control className= "input-bar" id="type-end" as="select" name = "language" onChange={handleInput}>
+                <Form.Control className="input-bar" id="type-end" as="select" name="language" onChange={handleInput}>
                   <option>JavaScript</option>
                   <option>HTML</option>
                   <option>React</option>
@@ -107,12 +104,12 @@ const PostPage = () => {
               </Form.Group>
               <Form.Group>
                 <Form.Label>Pay</Form.Label>
-                <Form.Control className="input-bar" id="pay" as="select" name ="payRate" onChange={handleInput}>
+                <Form.Control className="input-bar" id="pay" as="select" name="payRate" onChange={handleInput}>
                   <option>Flat</option>
                   <option>Hourly</option>
                 </Form.Control>
               </Form.Group>
-              <Button id="addJob" className="mb-3" onClick = {addJob}>
+              <Button id="addJob" className="mb-3" onClick={addJob}>
                 Post Job
               </Button>
             </div>
@@ -146,8 +143,8 @@ const PostPage = () => {
               {showConfirm ? (
                 <AlertDismissible closeDisplay={() => displayConfirm()} />
               ) : (
-                ""
-              )}
+                  ""
+                )}
             </div>
           </Col>
 
