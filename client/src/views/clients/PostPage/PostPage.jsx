@@ -32,6 +32,7 @@ const PostPage = () => {
 ])
   const [formData, setFormData] = useState({
     company:"",
+    jobDescription:"",
     jobTitle:"",
     workType:"",
     language:"",
@@ -59,17 +60,27 @@ const PostPage = () => {
     <div>
       <Container>
         <Row>
-          <Col className="postParams border mx-3">
+          <Col className="form-group">
             <div>
               
+            <Form.Group>
+                <Form.Label>Job Title</Form.Label>
+                 <Form.Control type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
+                 </Form.Group>
+
             <Form.Group>
                 <Form.Label>Company Name</Form.Label>
                  <Form.Control className= "input-bar" type="text" placeholder="Enter Company Name" name="company" onChange={handleInput} />
                  </Form.Group>
 
                  <Form.Group>
+
                 <Form.Label>Job Title</Form.Label>
                  <Form.Control className= "input-bar" type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
+
+                <Form.Label>Job Description</Form.Label>
+                 <Form.Control type="text" placeholder="Job Description" name = "jobDescription" onChange={handleInput} />
+
                  </Form.Group>
 
               <Form.Group>
@@ -101,16 +112,12 @@ const PostPage = () => {
                   <option>Hourly</option>
                 </Form.Control>
               </Form.Group>
-
-
-              <Button id="search" className="mb-3">
-                Search
-              </Button>
               <Button id="addJob" className="mb-3" onClick = {addJob}>
-                Add Job
+                Post Job
               </Button>
             </div>
           </Col>
+
 
 
           <Col>
@@ -143,6 +150,7 @@ const PostPage = () => {
               )}
             </div>
           </Col>
+
         </Row>
       </Container>
     </div>
