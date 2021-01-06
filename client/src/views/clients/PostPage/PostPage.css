@@ -30,3 +30,7 @@
 .postJob {
     -webkit-user-modify: read-only;
 }
+
+.input-bar {
+    backdrop-filter: blur(25px);
+}
