@@ -14,87 +14,76 @@ import axios from "axios"
 import API from "../../../util/API"
 const PostPage = () => {
   const [showConfirm, setShowConfirm] = useState(false);
- const [options, setOptions] = useState([
-  "JavaScript",
-  "Python",
-  "Swift",
-  "HTML5",
-  "SQL",
-  "PHP",
-  "Ruby",
-  "C",
-  "C++",
-  "C#",
-  "Visual Basic",
-  "Java",
-  "Objective C",
-  "Perl",
-])
-  const [formData, setFormData] = useState({
-    company:"",
-    jobDescription:"",
-    jobTitle:"",
-    workType:"",
-    language:"",
-    payRate:""
-  })
-  const displayConfirm= () => {
+  const [title, setTitle] = useState("")
+  const [company, setCompany] = useState("")
+  const [description, setDescription] = useState("")
+  const [type, setType] = useState("")
+  const [pay, setPay] = useState("")
+  const [language, setLanguage] = useState("")
+  const [options, setOptions] = useState([
+    "JavaScript",
+    "Python",
+    "Swift",
+    "HTML5",
+    "SQL",
+    "PHP",
+    "Ruby",
+    "C",
+    "C++",
+    "C#",
+    "Visual Basic",
+    "Java",
+    "Objective C",
+    "Perl",
+  ])
+ 
+  const displayConfirm = () => {
     setShowConfirm(!showConfirm);
   }
-  
-  const handleInput = (event) => {
-     const {name, value } = event.target
-     setFormData({
-       ...formData, [name]:value
-     })
 
-     console.log(value)
-     
-  }
   const addJob = () => {
-    API.newJobs(formData).then(results => {
-      alert("new job added")
+    API.newJobs({
+      title: title,
+      company: company,
+      description: description,
+      type: type,
+      language: language,
+      pay: pay,
     })
+      .then(res => {
+        console.log(res.data)
+      })
   }
+  
   return (
     <div>
       <Container>
         <Row>
           <Col className="form-group">
             <div>
-              
-            <Form.Group>
+              <Form.Group>
                 <Form.Label>Job Title</Form.Label>
-                 <Form.Control type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
-                 </Form.Group>
-
-            <Form.Group>
+                <Form.Control className="input-bar" type="text" placeholder="Job Title" name="jobTitle" onChange={(event) => setTitle(event.target.value)} />
+              </Form.Group>
+              <Form.Group>
                 <Form.Label>Company Name</Form.Label>
-                 <Form.Control className= "input-bar" type="text" placeholder="Enter Company Name" name="company" onChange={handleInput} />
-                 </Form.Group>
-
-                 <Form.Group>
-
-                <Form.Label>Job Title</Form.Label>
-                 <Form.Control className= "input-bar" type="text" placeholder="Job Title" name = "jobTitle" onChange={handleInput} />
-
+                <Form.Control className="input-bar" type="text" placeholder="Enter Company Name" name="company" onChange={(event) => setCompany(event.target.value)} />
+              </Form.Group>
+              <Form.Group>
                 <Form.Label>Job Description</Form.Label>
-                 <Form.Control type="text" placeholder="Job Description" name = "jobDescription" onChange={handleInput} />
-
-                 </Form.Group>
-
+                <Form.Control className="input-bar" type="text" placeholder="Job Description" name="jobDescription" onChange={(event) => setDescription(event.target.value)} />
+              </Form.Group>
               <Form.Group>
                 <Form.Label className="postType">Type</Form.Label>
-                <Form.Control className= "input-bar" id="type-end" as="select" name = "workType" onChange={handleInput}>
+                <Form.Control className="input-bar" id="type-end" as="select" name="workType" onChange={(event) => setType(event.target.value)}>
                   <option>Frontend</option>
                   <option>Backend</option>
                   <option>Both</option>
                 </Form.Control>
               </Form.Group>
-
               <Form.Group>
-                <Form.Label>Code Language</Form.Label>
-                <Form.Control className= "input-bar" id="type-end" as="select" name = "language" onChange={handleInput}>
+                <Form.Label>Language</Form.Label>
+                <Form.Control className="input-bar" id="type-end" as="select" name="language" onChange={(event) => setLanguage(event.target.value)}>
                   <option>JavaScript</option>
                   <option>HTML</option>
                   <option>React</option>
@@ -107,50 +96,39 @@ const PostPage = () => {
               </Form.Group>
               <Form.Group>
                 <Form.Label>Pay</Form.Label>
-                <Form.Control className="input-bar" id="pay" as="select" name ="payRate" onChange={handleInput}>
-                  <option>Flat</option>
-                  <option>Hourly</option>
-                </Form.Control>
+                <Form.Control className="input-bar" type="text" placeholder="Hourly or Flat" name="jobDescription" onChange={(event) => setPay(event.target.value)} />
               </Form.Group>
-              <Button id="addJob" className="mb-3" onClick = {addJob}>
-                Post Job
-              </Button>
             </div>
           </Col>
-
-
-
           <Col>
-            <div className="jobDescription">
-              {/* generated card from post search */}
-              {/* <Card className="mx-3">
+            <div>
+              <br></br>
+              <Card className="mx-3" id="live-copy">
                 <Card.Header id="job-title" as="h5" className="jobTitle">
-                  Job Title
+                  {title}
                 </Card.Header>
-                <Card.Body className="listingDescription">
-                  <Card.Title id="pay-rate">Pay Rate</Card.Title>
+                <Card.Body>
+                  <Card.Title id="pay-rate">
+                    {pay}
+                  </Card.Title>
+                  <Card.Title id="company">
+                    {company}
+                  </Card.Title>
                   <Card.Text id="job-description">
-                    Job Description Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Aliquam?
+                   {description}
                   </Card.Text>
-                  <Button
-                    className="postJob"
-                    id="post-job"
-                    variant="primary"
-                    onClick={displayConfirm}
-                  >
-                    Post Job
-                  </Button>
                 </Card.Body>
-              </Card> */}
+              </Card>
+              <Button id="addJob" className="mb-3" onClick={() => { addJob(); displayConfirm(); }}>
+                Post Job
+              </Button>
               {showConfirm ? (
                 <AlertDismissible closeDisplay={() => displayConfirm()} />
               ) : (
-                ""
-              )}
+                  ""
+                )}
             </div>
           </Col>
-
         </Row>
       </Container>
     </div>

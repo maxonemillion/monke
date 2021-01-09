@@ -1,23 +1,19 @@
 const mongoose = require('mongoose');
 
-const newJobSchema = new mongoose.Schema({
-    jobTitle: {
+const newListing = new mongoose.Schema({
+    title: {
         type: String,
         required: true
     },
-    
     company: {
         type: String,
-        required: true,
-      
+        required: true
     },
-
-    jobDescription: {
+    description: {
         type: String,
         required: true
     },
-   
-    workType: {
+    type: {
         type: String,
         required: true
     },
@@ -25,11 +21,11 @@ const newJobSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    payRate: {
+    pay: {
         type: String,
         required: true
     }
 })
 
-const Job = mongoose.model('Job', newJobSchema);
-module.exports = Job
+const Listing = mongoose.model('Listings', newListing);
+module.exports = Listing

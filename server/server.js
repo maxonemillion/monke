@@ -1,11 +1,9 @@
 const express = require('express');
 const routes = require('./routes');
-// const controller = require("./controller");
 const path = require('path');
 const app = express();
 require('dotenv').config();
 require('./config/db')();
-console.log(process.env.JWTSCRT);
 
 const PORT = process.env.PORT || 3001;
 
