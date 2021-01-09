@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Card, Row } from "react-bootstrap";
 
 import ContractorHome from "../../contractors/HomePage/ContractorHome";
@@ -6,8 +6,11 @@ import ContractorHome from "../../contractors/HomePage/ContractorHome";
 import { Link } from "react-router-dom";
 
 import "./ClientHome.css";
+import {AuthContext} from "../../../util/context";
 
 const ClientHome = () => {
+  const authorized = useContext(AuthContext);
+  console.log(authorized);
   return (
     <div>
       <Row className="postPageRow">
