@@ -16,11 +16,11 @@ console.log(authorized);
   return (
     <div>
       <h2>Edit Listing</h2>
-      <Card className="listing">
+      <Card className="editListing">
           <Card.Body className="text-lg-left listingEdit">
             <Row>
             <Card.Title >React Website Design</Card.Title>
-            <Card className="mb-2 text-muted price">$69 / h</Card>
+            <Card className="mb-2 text-muted editPay">$69 / h</Card>
             </Row>
             <Card.Subtitle className="mb-2 text-muted">Code Monkey LLC</Card.Subtitle>
             <Card.Text>
