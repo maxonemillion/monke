@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect }from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
@@ -21,8 +21,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
 
+import { AuthContext } from "./util/context";
+import axios from "axios";
+
 function App() {
+  const [newUser, setNewUser] = useState(null);
+  useEffect(() => {
+    let storage = localStorage.getItem("JWTSCRT");
+    axios.get("/verified?token=" + storage).then ((resp) => {
+      console.log("Sanity", resp);
+      setNewUser(resp.data);
+    })
+  },[])
   return (
+    <AuthContext.Provider value={newUser}>
     <Router>
       <BackgroundVideo />
       <div className="App">
@@ -43,6 +55,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </AuthContext.Provider>
   );
 }
 
