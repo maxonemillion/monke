@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Button, Card, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ConfirmRemove from "../../../components/Alerts/RemoveListing/RemoveListing"
 import "./ListingEdit.css"
+import { AuthContext } from "../../../util/context"
 
 const ListingEdit = () => {
     const [showConfirm, setShowConfirm] = useState(false);
@@ -10,7 +11,8 @@ const ListingEdit = () => {
     function displayConfirm() {
         setShowConfirm(!showConfirm);
     }
-
+const authorized = useContext(AuthContext);
+console.log(authorized);
   return (
     <div>
       <h2>Edit Listing</h2>

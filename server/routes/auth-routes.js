@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Users } = require('../models');
+const {
+  Users
+} = require('../models');
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const jwt = require("jsonwebtoken")
@@ -16,11 +18,16 @@ router
           password: hash
         })
         .then(data => {
-          res.json({ success: true, data });
+          res.json({
+            success: true,
+            data
+          });
         })
         .catch(err => {
           console.log(err);
-          res.json({ success: false });
+          res.json({
+            success: false
+          });
         });
     })
   });
@@ -37,16 +44,26 @@ router
             if (passwordsMatch) {
 
               let token = jwt.sign(data.email, process.env.JWTSCRT)
-              
-              res.json({ auth: true, role: data.role, token })
+
+              res.json({
+                auth: true,
+                role: data.role,
+                token
+              })
             } else {
-                res.json({ auth: false, message: "Invalid password"});
-              }
+              res.json({
+                auth: false,
+                message: "Invalid password"
+              });
+            }
           })
         } else {
-          res.json({ auth: false, message: "User not found"});
+          res.json({
+            auth: false,
+            message: "User not found"
+          });
         }
-    })
+      })
   })
 
 module.exports = router;
