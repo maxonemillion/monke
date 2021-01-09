@@ -5,8 +5,11 @@ const API = {
         console.log("hello world", {username, password});
         return axios.post("/login", {username, password})
     },
-    newJobs:(newJobs)=>{
-        return axios.post("/api/job", newJobs)
+    newJobs: (newJobs) => {
+        return axios.post("/api/listings", newJobs)
+    },
+    findJobs: () => {
+        return axios.get("/api/listings")
     }
 }
 
