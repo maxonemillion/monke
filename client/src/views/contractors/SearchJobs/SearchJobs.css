@@ -1,29 +1,7 @@
-.border {
-    /* border-radius: .25rem!important; */
-}
-
-.jobType {
-    /* margin-top: 10px; */
-}
-
-.jobParams {
-    /* margin-bottom: 30px; */
-}
-
-.search-jobs {
-    /* text-align: center; */
-}
-
-.jobs {
-    /* margin-left: 50px;
+.jobs, #lang, #keyword, .option {
+  /* margin-left: 50px;
     margin-right: 50px; */
-    background-color: #6c757d;
-    color: white;
-    border: #343a40 solid 2px;
-    border-radius: 15px;
-}
-
-.option {
-    background-color: black;
-    color: white;
+  background: transparent !important;
+  backdrop-filter: blur(25px);
+  border-color: rgb(0, 255, 221) !important;
 }

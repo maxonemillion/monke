@@ -53,10 +53,8 @@ const SearchJobs = () => {
               </Form.Group>
 
               <Form.Group>
-                <Form.Label>Pay</Form.Label>
-                <Form.Control className="option" id="pay" as="select">
-                  <option>Flat</option>
-                  <option>Hourly</option>
+                <Form.Label>Keywords</Form.Label>
+                <Form.Control className="input-bar" id="keyword" placeholder="e.g. Per Hour, Remote Work, Etc...">
                 </Form.Control>
               </Form.Group>
               <Button variant="primary" id="search" className="mb-3" href="/SearchResults">
