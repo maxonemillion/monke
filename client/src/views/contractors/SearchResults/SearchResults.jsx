@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card, Row, Col, Container } from "react-bootstrap";
+import { Button, Card, Row, Container } from "react-bootstrap";
 import AlertDismissible from "../../../components/Alerts/JobSaved/JobSaved";
 import API from "../../../util/API";
 import "./SearchResults.css";
@@ -20,11 +20,18 @@ const SearchResults = () => {
         })
 }, [])
 
-  const findJobs = () => {
-    API.findJobs({}).then(res => {
+  const handleSave = (index) => {
+    API.saveJob({
+      title: data[index]?.title,
+      company: data[index]?.company,
+      description: data[index]?.description,
+      type: data[index]?.type,
+      language: data[index]?.language,
+      pay: data[index]?.pay,
+    })
+      .then(res => {
       console.log(res.data)
-      setData(res.data)
-   })
+    })
   }
 
   return (
@@ -43,7 +50,7 @@ const SearchResults = () => {
               <Card.Text>
               {cardData.description}
                </Card.Text>
-              <Button variant="primary">Save</Button>
+              <Button variant="primary" onClick={() => handleSave(index)}>Save</Button>
             </Card.Body>
             </Card>
           )

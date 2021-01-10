@@ -5,11 +5,20 @@ const API = {
         console.log("hello world", {username, password});
         return axios.post("/login", {username, password})
     },
-    newJobs: (newJobs) => {
-        return axios.post("/api/listings", newJobs)
+    postJob: (newListing) => {
+        return axios.post("/api/listings", newListing)
     },
     findJobs: () => {
         return axios.get("/api/listings")
+    },
+    saveJob: (savedJob) => {
+        return axios.post("/api/saved", savedJob)
+    },
+    mySavedJobs: () => {
+        return axios.get("/api/saved")
+    },
+    unsaveJob: (id) => {
+        return axios.delete("api/saved/" + id)
     }
 }
 

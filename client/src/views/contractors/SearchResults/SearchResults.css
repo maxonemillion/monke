@@ -1,24 +1,10 @@
 .resultsListing {
     background: transparent !important;
+    margin-bottom: 10px;
     backdrop-filter: blur(25px);
     border-color: rgb(0, 255, 221) !important;
     color: white;
     border-radius: 15px;
-    margin: 10px;
-}
-
-.resultsPay {
-    margin-right: 60px;
-    border: none !important;
-    background-color: transparent;
-}
-
-.listingPreview {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
 }
 
 .row {
@@ -26,6 +12,12 @@
     align-items: flex-start;
     justify-content: space-between;
     padding-left: 15px;
+}
+
+.resultsPay {
+    margin-right: 60px;
+    border: none !important;
+    background-color: transparent;
 }
 
 .editPay {
@@ -51,11 +43,6 @@ h2 {
     text-decoration: none;
     text-shadow: none;
     color: black !important;
-}
-
-.search-results {
-    /* color: white; */
-    text-align: center;
 }
 
 hr {

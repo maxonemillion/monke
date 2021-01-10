@@ -2,9 +2,11 @@ const router = require('express').Router();
 const users = require('./auth-routes');
 const JST = require("jsonwebtoken");
 const db = require("../models")
+const saved = require("./saved-routes.js")
 
 
 router.use("/api/users", users);
+router.use("/api/saved", saved)
 
 const authMiddle = (req, res, next) => {
     try {
