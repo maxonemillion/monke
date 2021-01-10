@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card, Row, Col, Container } from "react-bootstrap";
+import { Button, Card, Row, Container } from "react-bootstrap";
 import AlertDismissible from "../../../components/Alerts/JobSaved/JobSaved";
 import API from "../../../util/API";
 import "./SearchResults.css";
@@ -20,41 +20,39 @@ const SearchResults = () => {
         })
 }, [])
 
-  const findJobs = () => {
-    API.findJobs({}).then(res => {
+  const handleSave = (index) => {
+    API.saveJob({
+      title: data[index]?.title,
+      company: data[index]?.company,
+      description: data[index]?.description,
+      type: data[index]?.type,
+      language: data[index]?.language,
+      pay: data[index]?.pay,
+    })
+      .then(res => {
       console.log(res.data)
-      setData(res.data)
-   })
+    })
   }
 
   return (
     <div className="search-results">
-      <h2 className="my-5 display-1">Search Results</h2>
+      <h2>Search Results</h2>
       <Container>
         {data.map((cardData, index) => {
           return (
-        <Card className="listing">
-          <Card.Body className="text-lg-left">
-            <Row>
-              <Card.Title id="resultsTitle">
-                <h2>{cardData.title}</h2>
-              </Card.Title>
-
-              <Card.Subtitle className="mb-2 price" id="resultsPay">
-                <h6>{cardData.pay}</h6>
-              </Card.Subtitle>
-            </Row>
-            <hr />
-            <Card.Text className="mb-2" id="resultsDescription">{cardData.description}</Card.Text>
-            <Card.Text className="listingPreview">
-              {cardData.pay}
-            </Card.Text>
-
-            <Button variant="primary" onClick={() => { displayConfirm(); findJobs(); }}>
-              Save
-            </Button>
-          </Card.Body>
-        </Card>
+            <Card className="resultsListing">
+            <Card.Body className="text-lg-left">
+              <Row>
+              <Card.Title>{cardData.title}</Card.Title>
+              <Card className="mb-2 text-muted editPay">{cardData.pay}</Card>
+              </Row>
+              <Card.Subtitle className="mb-2 text-muted">{cardData.company}</Card.Subtitle>
+              <Card.Text>
+              {cardData.description}
+               </Card.Text>
+              <Button variant="primary" onClick={() => handleSave(index)}>Save</Button>
+            </Card.Body>
+            </Card>
           )
         })}
         <br></br>

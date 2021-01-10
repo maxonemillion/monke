@@ -1,9 +1,9 @@
-.listing {
-    margin-left: 50px;
-    margin-right: 50px;
-    background-color: #6c757d;
+.resultsListing {
+    background: transparent !important;
+    margin-bottom: 10px;
+    backdrop-filter: blur(25px);
+    border-color: rgb(0, 255, 221) !important;
     color: white;
-    border: #343a40 solid 2px;
     border-radius: 15px;
 }
 
@@ -14,16 +14,16 @@
     padding-left: 15px;
 }
 
-.my-5 {
-    color: rgb(0, 255, 221);
+.resultsPay {
+    margin-right: 60px;
+    border: none !important;
+    background-color: transparent;
 }
 
-.listingPreview {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 10;
-    -webkit-box-orient: vertical;
+.editPay {
+    margin-right: 60px;
+    background-color: transparent;
+    border: none !important;
 }
 
 .btn {
@@ -43,11 +43,6 @@ h2 {
     text-decoration: none;
     text-shadow: none;
     color: black !important;
-}
-
-.search-results {
-    /* color: white; */
-    text-align: center;
 }
 
 hr {

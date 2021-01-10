@@ -28,9 +28,9 @@ function App() {
   const [newUser, setNewUser] = useState(null);
   useEffect(() => {
     let storage = localStorage.getItem("JWTSCRT");
-    axios.get("/verified?token=" + storage).then ((resp) => {
-      console.log("Sanity", resp);
-      setNewUser(resp.data);
+    axios.get("/verified?token=" + storage).then ((res) => {
+      console.log("Sanity", res);
+      setNewUser(res.data);
     })
   },[])
   return (
