@@ -13,7 +13,7 @@ import SearchResults from "./views/contractors/SearchResults"
 
 import BackgroundVideo from "./components/BackgroundVideo/BackgroundVideo"
 
-import NavBar from "./components/NavBar";
+import NavBar from "./components/HomeNavBar";
 import Footer from "./components/Footer";
 
 
@@ -38,7 +38,6 @@ function App() {
     <Router>
       <BackgroundVideo />
       <div className="App">
-        <NavBar />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/SignupPage" component={SignupPage} />
@@ -49,9 +48,7 @@ function App() {
           <Route exact path="/ClientHome" component={ClientHome} />
           <Route exact path="/ListingEdit" component={ListingEdit} />
           <Route exact path="/PostPage" component={PostPage} />
-
         </Switch>
-
         <Footer />
       </div>
     </Router>

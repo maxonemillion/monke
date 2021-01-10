@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useHistory } from "react-router-dom";
 import API from "../../util/API";
+import NavBar from "../../components/HomeNavBar/NavBar"
 import axios from "axios";
 import "./LoginPage.css"
 
@@ -36,7 +37,9 @@ const LoginPage = () => {
     }
   }
 
-    return (
+  return (
+      <div>
+      <NavBar />
       <div className="loginForm">
         <Container>
           <Form>
@@ -57,6 +60,7 @@ const LoginPage = () => {
           </Form>
           <br></br>
         </Container>
+      </div>
       </div>
     );
 }
