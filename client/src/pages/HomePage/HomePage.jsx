@@ -3,7 +3,7 @@ import { Jumbotron, Container, Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import NavBar from "../../components/HomeNavBar/NavBar"
+import NavBar from "../../components/HomeNavBar/HomeNavBar"
 import "./HomePage.css";
 
 const HomePage = () => {

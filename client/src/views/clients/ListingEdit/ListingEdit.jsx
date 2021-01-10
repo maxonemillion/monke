@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Button, Card, Row } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ConfirmRemove from "../../../components/Alerts/RemoveListing/RemoveListing"
+import ClientNavBar from "../../../components/ClientNavBar"
 import "./ListingEdit.css"
 import { AuthContext } from "../../../util/context"
 
@@ -14,6 +15,8 @@ const ListingEdit = () => {
 const authorized = useContext(AuthContext);
 console.log(authorized);
   return (
+    <div>
+      <ClientNavBar />
     <div>
       <h2>Edit Listing</h2>
       <Card className="editListing">
@@ -33,6 +36,7 @@ console.log(authorized);
           {showConfirm ? <ConfirmRemove
               closeDisplay={() => displayConfirm()}/> : ""}
       <br></br>
+    </div>
     </div>
   );
 }

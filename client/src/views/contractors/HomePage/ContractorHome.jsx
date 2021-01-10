@@ -3,7 +3,7 @@ import { Button, Card, Container, Row } from "react-bootstrap";
 import "./ContractorHome.css"
 import API from "../../../util/API";
 import axios from "axios";
-import NavBar from "../../../components/HomeNavBar/NavBar"
+import ContractorNavBar from "../../../components/ContractorNavBar"
 
 const ContractorHome = () => {
   const [data, setData] = useState([]);
@@ -25,6 +25,8 @@ const ContractorHome = () => {
   }
 
   return ( 
+    <div>
+      <ContractorNavBar />
     <div className="search-results">
       <h2>Saved Jobs</h2>
       <Container>
@@ -47,6 +49,7 @@ const ContractorHome = () => {
         })}
         <br></br>
       </Container>
+    </div>
     </div>
    
   );

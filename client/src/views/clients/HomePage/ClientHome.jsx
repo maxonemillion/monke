@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Button, Card, Row } from "react-bootstrap";
-
-import ContractorHome from "../../contractors/HomePage/ContractorHome";
+import ClientNavBar from "../../../components/ClientNavBar"
 
 import { Link } from "react-router-dom";
 
@@ -12,6 +11,8 @@ const ClientHome = () => {
   const authorized = useContext(AuthContext);
   console.log(authorized);
   return (
+    <div>
+      <ClientNavBar />
     <div>
       <Row className="postPageRow">
         <Link to="/PostPage">New Listing</Link>
@@ -44,6 +45,7 @@ const ClientHome = () => {
         </a>
       </Card>
       <br></br>
+    </div>
     </div>
   );
 }
