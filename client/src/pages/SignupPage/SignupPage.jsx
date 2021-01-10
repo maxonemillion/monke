@@ -3,6 +3,7 @@ import { Button, Container, Form, Tabs, Tab } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./SignupPage.css";
+import HomeNavBar from "../../components/HomeNavBar"
 
 const SignupPage = () => {
   const [username, setUsername] = useState("")
@@ -31,6 +32,8 @@ const SignupPage = () => {
   }
 
   return (
+    <div>
+      <HomeNavBar />
     <div className="signupForm">
       <Tabs defaultActiveKey="home" id="uncontrolled-tab-example" className="tabs">
         <Tab eventKey="home" title="Contractor" className="tabs" onSelect={() => setRole("contractor")}>
@@ -130,6 +133,7 @@ const SignupPage = () => {
           </Container>
         </Tab>
       </Tabs>
+    </div>
     </div>
   );
 }

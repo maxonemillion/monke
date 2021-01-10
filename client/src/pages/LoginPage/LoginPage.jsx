@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useHistory } from "react-router-dom";
 import API from "../../util/API";
-import NavBar from "../../components/HomeNavBar/NavBar"
+import NavBar from "../../components/HomeNavBar/HomeNavBar"
 import axios from "axios";
 import "./LoginPage.css"
 

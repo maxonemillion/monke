@@ -6,10 +6,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../SearchJobs/SearchJobs.css"
+import ContractorNavBar from "../../../components/ContractorNavBar"
 import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 const SearchJobs = () => {
   return (
+    <div>
+      <ContractorNavBar />
     <div className="search-jobs">
       <h2 className="my-5 display-1">Search Jobs</h2>
       <Container>
@@ -63,6 +66,7 @@ const SearchJobs = () => {
           </Col>
         </Row>
       </Container>
+    </div>
     </div>
   );
 }

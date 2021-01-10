@@ -3,6 +3,7 @@ import { Button, Card, Row, Container } from "react-bootstrap";
 import AlertDismissible from "../../../components/Alerts/JobSaved/JobSaved";
 import API from "../../../util/API";
 import "./SearchResults.css";
+import ContractorNavBar from "../../../components/ContractorNavBar"
 
 const SearchResults = () => {
   const [showConfirm, setShowConfirm] = useState(false);
@@ -35,6 +36,8 @@ const SearchResults = () => {
   }
 
   return (
+    <div>
+      <ContractorNavBar />
     <div className="search-results">
       <h2>Search Results</h2>
       <Container>
@@ -62,6 +65,7 @@ const SearchResults = () => {
           ""
         )}
       </Container>
+    </div>
     </div>
   );
 };
