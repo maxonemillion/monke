@@ -1,10 +1,10 @@
 .brand {
-  font-size: 45px;
+  font-size: 30px!important;
   color: rgb(0, 255, 221)!important;
 }
 
 .navbar {
-  background: transparent!important;
+  background-color: transparent!important;
 }
 
 .btn {
