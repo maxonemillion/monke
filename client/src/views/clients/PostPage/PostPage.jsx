@@ -42,7 +42,7 @@ const PostPage = () => {
   }
 
   const addJob = () => {
-    API.newJobs({
+    API.postJob({
       title: title,
       company: company,
       description: description,
