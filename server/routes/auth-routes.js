@@ -65,6 +65,7 @@ router
       }).then(data => {
         if (data) {
           bcrypt.compare(req.body.password, data.password, function (err, passwordsMatch) {
+            console.log("DATA", data);
             if (passwordsMatch) {
 
               let token = jwt.sign(data.email, process.env.JWTSCRT)

@@ -15,7 +15,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     default: "contractor",
     enum: ["contractor", "client"]
-  }
+  },
+  jobs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Listings"
+  }]
 });
 
 const Users = mongoose.model('Users', UserSchema);
