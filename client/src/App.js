@@ -29,7 +29,6 @@ function App() {
   useEffect(() => {
     let storage = localStorage.getItem("JWTSCRT");
     axios.get("/verified?token=" + storage).then ((res) => {
-      console.log("Sanity", res);
       setNewUser(res.data);
     })
   },[])

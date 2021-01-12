@@ -11,6 +11,7 @@ const ContractorHome = () => {
   useEffect(() => {
     API.mySavedJobs()
       .then(res => {
+        console.log(res)
         setData(res.data)
         console.log(res.data)
       })
