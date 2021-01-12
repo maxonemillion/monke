@@ -4,8 +4,14 @@ import AlertDismissible from "../../../components/Alerts/JobSaved/JobSaved";
 import API from "../../../util/API";
 import "./SearchResults.css";
 import ContractorNavBar from "../../../components/ContractorNavBar"
+import queryString from "query-string";
 
-const SearchResults = () => {
+
+
+const SearchResults = (props) => {
+console.log(props.location.search)
+const parsed = queryString.parse(props.location.search, {arrayFormat: 'comma'});
+console.log(parsed);
   const [showConfirm, setShowConfirm] = useState(false);
   const [data, setData] = useState([]);
 
