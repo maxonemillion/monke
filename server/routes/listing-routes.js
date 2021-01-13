@@ -1,15 +1,16 @@
 const router = require('express').Router();
+const { Listing } = require("../models")
 
-const db = require("../models")
-
-router.get("/", (req, res) => {
-  db.Listing.find({}).then(results => res.json(results))
-})
 
 router
+  .get("/", (req, res) => {
+    Listing
+      .find({})
+      .then(results => res.json(results))
+  })
   .post("/", (req, res) => {
     console.log("TEST", req.body);
-    db.Listing
+    Listing
       .create({
         ...req.body
       })
@@ -26,5 +27,21 @@ router
         });
       });
   });
+
+
+router
+  .delete("/:id", (req, res) => {
+    console.log('=========================')
+    console.log(req.params);
+    Listing
+      .findByIdAndDelete(req.params.id)
+      .then(data => {
+        res.json({ success: true });
+      })
+      .catch(err => {
+        res.json({ success: false });
+      });
+  });
+
 
 module.exports = router;

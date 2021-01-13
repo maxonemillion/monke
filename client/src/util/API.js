@@ -1,24 +1,32 @@
 import axios from "axios";
 
 const API = {
-    loginUser: ({username, password}) => {
-        console.log("hello world", {username, password});
-        return axios.post("/login", {username, password})
+    loginUser: ({ username, password }) => {
+        console.log("hello world", { username, password });
+        return axios.post("/api/users/login", { username, password })
     },
     postJob: (newListing) => {
-        return axios.post("/api/listings", newListing)
+        return axios.post("/api/listings/", newListing)
     },
-    findJobs: () => {
+    myListings: () => {
         return axios.get("/api/listings")
     },
+    unlistJob: (id) => {
+        console.log({ id });
+        return axios.delete("/api/listings/" + id)
+        // return axios.delete('/api/test');
+    },
+    findJobs: () => {
+        return axios.get("/api/listings/")
+    },
     saveJob: (savedJob) => {
-        return axios.post("/api/saved", savedJob)
+        return axios.post("/api/saved/", savedJob)
     },
     mySavedJobs: () => {
         return axios.get("/api/saved")
     },
     unsaveJob: (id) => {
-        return axios.delete("api/saved/" + id)
+        return axios.delete("/api/saved/" + id)
     }
 }
 

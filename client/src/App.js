@@ -1,5 +1,5 @@
 import React, { useState, useEffect }from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
@@ -26,12 +26,28 @@ import axios from "axios";
 
 function App() {
   const [newUser, setNewUser] = useState(null);
+  const [JWT, setJWT] = useState("");
+
   useEffect(() => {
     let storage = localStorage.getItem("JWTSCRT");
-    axios.get("/verified?token=" + storage).then ((res) => {
+    console.log("LOCALSTORAGE", localStorage)
+    axios.get("/api/users/verified?token=" + storage).then((res) => {
+      console.log(res.data);
       setNewUser(res.data);
-    })
-  },[])
+      setJWT(localStorage.JWTSCRT)
+      console.log(localStorage.JWTSCRT)
+    }).catch(err => console.log(err))
+  }, [])
+  
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={(props) => (
+      JWT
+        ? <Component {...props} />
+        : <Redirect to="/" />
+    )} />
+  )
+  
+
   return (
     <AuthContext.Provider value={newUser}>
     <Router>
@@ -41,12 +57,12 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/SignupPage" component={SignupPage} />
           <Route exact path="/LoginPage" component={LoginPage} />
-          <Route exact path="/ContractorHome" component={ContractorHome} />
-          <Route exact path="/SearchJobs" component={SearchJobs} />
-          <Route exact path="/SearchResults" component={SearchResults} />
-          <Route exact path="/ClientHome" component={ClientHome} />
-          <Route exact path="/ListingEdit" component={ListingEdit} />
-          <Route exact path="/PostPage" component={PostPage} />
+          <PrivateRoute exact path="/ContractorHome" component={ContractorHome} />
+          <PrivateRoute exact path="/SearchJobs" component={SearchJobs} />
+          <PrivateRoute exact path="/SearchResults" component={SearchResults} />
+          <PrivateRoute exact path="/ClientHome" component={ClientHome} />
+          <PrivateRoute exact path="/ListingEdit" component={ListingEdit} />
+          <PrivateRoute exact path="/PostPage" component={PostPage} />
         </Switch>
         <Footer />
       </div>
