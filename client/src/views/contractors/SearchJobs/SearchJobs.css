@@ -1,7 +1,6 @@
-.jobs, #lang, #keyword, .option {
-  /* margin-left: 50px;
-    margin-right: 50px; */
-  background: transparent !important;
+.jobs {
   backdrop-filter: blur(25px);
-  border-color: rgb(0, 255, 221) !important;
+  background: transparent;
+  border-color: rgb(0, 255, 221)!important;
+  border-radius: 15px;
 }

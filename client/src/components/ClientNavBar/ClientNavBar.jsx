@@ -4,6 +4,11 @@ import { Navbar, Nav, Button, Container } from "react-bootstrap";
 import "./ClientNavBar.css";
 
 const Navbars = () => {
+
+  const logout = () => {
+    localStorage.removeItem("JWTSCRT");
+  };
+  
   return (
     <Navbar variant="dark" expand="lg" className="navbar">
       <Container>
@@ -19,7 +24,7 @@ const Navbars = () => {
             <Button variant="danger" size="md" href="/ClientHome">
               My Listings
             </Button>
-            <Button variant="danger" size="md" href="/">
+            <Button variant="danger" size="md" href="/" onClick={logout}>
               Logout
             </Button>
           </Nav>
