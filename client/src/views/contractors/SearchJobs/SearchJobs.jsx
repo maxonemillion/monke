@@ -13,6 +13,7 @@ const SearchJobs = () => {
   const [selectArray, setSelectArray] = useState([]);
   console.log(selectArray.toString());
   const [selectType, setSelectType] = useState("");
+  const [inputBar, setInputBar] = useState("");
   return (
     <div>
       <ContractorNavBar />
@@ -26,7 +27,9 @@ const SearchJobs = () => {
                 <Form.Label className="jobType">Type</Form.Label>
                 <Form.Control 
                 onChange={(e) => setSelectType(e.target.value)}
-                className="option" id="type-end" as="select">
+                className="option" 
+                id="type-end" 
+                as="select">
                   <option>Frontend</option>
                   <option>Backend</option>
                   <option>Both</option>
@@ -60,10 +63,18 @@ const SearchJobs = () => {
 
               <Form.Group>
                 <Form.Label>Keywords</Form.Label>
-                <Form.Control className="input-bar" id="keyword" placeholder="e.g. Per Hour, Remote Work, Etc...">
+                <Form.Control 
+                onChange={(e) => setInputBar(e.target.value)}
+                className="input-bar" 
+                id="keyword" 
+                placeholder="e.g. Per Hour, Remote Work, Etc...">
                 </Form.Control>
               </Form.Group>
-              <Button variant="primary" id="search" className="mb-3" href={"/SearchResults?selectedLang=" + selectArray.toString() + "&jobType=" + selectType}>
+              <Button 
+              variant="primary" 
+              id="search" 
+              className="mb-3" 
+              href={"/SearchResults?selectedLang=" + selectArray.toString() + "&jobType=" + selectType + "&keywords=" + inputBar}>
                 Search
               </Button>
             </Form>
