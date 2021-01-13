@@ -10,6 +10,9 @@ import ContractorNavBar from "../../../components/ContractorNavBar"
 import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 const SearchJobs = () => {
+  const [selectArray, setSelectArray] = useState([]);
+  console.log(selectArray.toString());
+  const [selectType, setSelectType] = useState("");
   return (
     <div>
       <ContractorNavBar />
@@ -21,7 +24,9 @@ const SearchJobs = () => {
             <Form className="jobs p-3">
               <Form.Group>
                 <Form.Label className="jobType">Type</Form.Label>
-                <Form.Control className="option" id="type-end" as="select">
+                <Form.Control 
+                onChange={(e) => setSelectType(e.target.value)}
+                className="option" id="type-end" as="select">
                   <option>Frontend</option>
                   <option>Backend</option>
                   <option>Both</option>
@@ -31,6 +36,7 @@ const SearchJobs = () => {
               <Form.Group>
                 <Form.Label>Code Language</Form.Label>
                 <DropdownMultiselect
+                handleOnChange={(s) => setSelectArray(s)}
                   id="lang"
                   options={[
                     "JavaScript",
@@ -57,7 +63,7 @@ const SearchJobs = () => {
                 <Form.Control className="input-bar" id="keyword" placeholder="e.g. Per Hour, Remote Work, Etc...">
                 </Form.Control>
               </Form.Group>
-              <Button variant="primary" id="search" className="mb-3" href="/SearchResults">
+              <Button variant="primary" id="search" className="mb-3" href={"/SearchResults?selectedLang=" + selectArray.toString() + "&jobType=" + selectType}>
                 Search
               </Button>
             </Form>
