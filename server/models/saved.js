@@ -7,24 +7,22 @@ const savedJob = new mongoose.Schema({
     },
     company: {
         type: String,
-        required: true
     },
     description: {
         type: String,
         required: true
     },
-    type: {
+    contact: {
         type: String,
         required: true
     },
     language: {
         type: String,
-        required: true
     },
     pay: {
         type: String,
         required: true
-    }
+    }  
 })
 
 const Saved = mongoose.model('Saved Jobs', savedJob);

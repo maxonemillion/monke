@@ -9,12 +9,13 @@ const API = {
         return axios.post("/api/listings/", newListing)
     },
     myListings: () => {
-        return axios.get("/api/listings")
+        return axios.get("/api/listings/")
+    },
+    editJob: (id, updated) => {
+        return axios.post("/api/listings/" + id, {data: updated})
     },
     unlistJob: (id) => {
-        console.log({ id });
         return axios.delete("/api/listings/" + id)
-        // return axios.delete('/api/test');
     },
     findJobs: () => {
         return axios.get("/api/listings/")
@@ -23,7 +24,7 @@ const API = {
         return axios.post("/api/saved/", savedJob)
     },
     mySavedJobs: () => {
-        return axios.get("/api/saved")
+        return axios.get("/api/saved/")
     },
     unsaveJob: (id) => {
         return axios.delete("/api/saved/" + id)

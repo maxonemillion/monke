@@ -1,4 +1,4 @@
-import React, { useState, useEffect }from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
@@ -24,6 +24,21 @@ import "./App.css";
 import { AuthContext } from "./util/context";
 import axios from "axios";
 
+const PrivateRoute = ({ component: Component, active, ...rest }) => {
+  console.log("COMPONENT", Component.name)
+  return (
+    <Route {...rest} render={(props) => {
+      if (active) {
+        return <Component {...rest} {...props} />
+      }
+      else {
+        return <Redirect to="/" />
+      }
+    }
+    } />
+  )
+}
+
 function App() {
   const [newUser, setNewUser] = useState(null);
   const [JWT, setJWT] = useState("");
@@ -35,38 +50,41 @@ function App() {
       console.log(res.data);
       setNewUser(res.data);
       setJWT(localStorage.JWTSCRT)
-      console.log(localStorage.JWTSCRT)
     }).catch(err => console.log(err))
   }, [])
-  
-  const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={(props) => (
-      JWT
-        ? <Component {...props} />
-        : <Redirect to="/" />
-    )} />
-  )
-  
+
+  console.log("APP USER", newUser)
 
   return (
     <AuthContext.Provider value={newUser}>
-    <Router>
-      <BackgroundVideo />
       <div className="App">
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/SignupPage" component={SignupPage} />
-          <Route exact path="/LoginPage" component={LoginPage} />
-          <PrivateRoute exact path="/ContractorHome" component={ContractorHome} />
-          <PrivateRoute exact path="/SearchJobs" component={SearchJobs} />
-          <PrivateRoute exact path="/SearchResults" component={SearchResults} />
-          <PrivateRoute exact path="/ClientHome" component={ClientHome} />
-          <PrivateRoute exact path="/ListingEdit" component={ListingEdit} />
-          <PrivateRoute exact path="/PostPage" component={PostPage} />
-        </Switch>
-        <Footer />
+        <BackgroundVideo />
+        <Router>
+          <Switch>
+            <Route exact path="/" component={() => {
+              if (newUser) {
+                if (newUser.role === "contractor") {
+                  return <Redirect to="ContractorHome" />
+                } else if (newUser.role === "client") {
+                  return <Redirect to="ClientHome" />
+                }
+              } else {
+                return <HomePage />
+              }
+            }} />
+            <Route exact path="/SignupPage" component={SignupPage} />
+            <Route exact path="/LoginPage" component={LoginPage} />
+            <Route exact path="/SearchResults" active={!!newUser} component={SearchResults} />
+            <Route exact path="/SearchJobs" active={!!newUser} component={SearchJobs} />
+            <Route exact path="/ListingEdit" active={!!newUser} component={ListingEdit} />
+            <Route exact path="/PostPage" active={!!newUser} component={PostPage} />
+            <Route exact path="/ClientHome" active={!!newUser} component={ClientHome} />
+            <Route exact path="/ContractorHome" active={!!newUser} component={ContractorHome} />
+            {/* <Redirect from="*" to="/" /> */}
+          </Switch>
+          <Footer />
+        </Router>
       </div>
-    </Router>
     </AuthContext.Provider>
   );
 }

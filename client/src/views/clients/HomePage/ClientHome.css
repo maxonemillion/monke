@@ -3,6 +3,7 @@
     align-items: flex-start;
     justify-content: space-between;
     padding-left: 15px;
+    padding-right: 15px
 }
 
 .price {
@@ -38,12 +39,15 @@ h2 {
     color: rgb(0, 255, 221)!important;
 }
 
-.hyperCard {
-    color: black!important;
+.editsTitle {
+    font-size: 15px;
+    color: rgb(0, 255, 221)!important;
+    margin-right: 100px;
+    width: 300px
 }
 
-.paybar {
-    margin-left: -15px
+.hyperCard {
+    color: black!important;
 }
 
 .hyperCard:link {

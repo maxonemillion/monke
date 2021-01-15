@@ -17,37 +17,26 @@ const PostPage = () => {
   const [title, setTitle] = useState("")
   const [company, setCompany] = useState("")
   const [description, setDescription] = useState("")
+  const [contact, setContact] = useState("")
   const [type, setType] = useState("")
   const [pay, setPay] = useState("")
-  const [language, setLanguage] = useState("")
-  const [options, setOptions] = useState([
-    "JavaScript",
-    "Python",
-    "Swift",
-    "HTML5",
-    "SQL",
-    "PHP",
-    "Ruby",
-    "C",
-    "C++",
-    "C#",
-    "Visual Basic",
-    "Java",
-    "Objective C",
-    "Perl",
-  ])
- 
+  const [language, setLanguage] = useState([])
+
+
   const displayConfirm = () => {
     setShowConfirm(!showConfirm);
   }
 
+  const languageString = language.join(', ');
+
   const addJob = () => {
+    console.log(languageString)
     API.postJob({
       title: title,
       company: company,
       description: description,
-      type: type,
-      language: language,
+      contact: contact,
+      language: languageString,
       pay: pay,
     })
       .then(res => {
@@ -69,27 +58,40 @@ const PostPage = () => {
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Company Name</Form.Label>
-                  <Form.Control className="input-bar" type="text" placeholder="Enter Company Name" name="company" onChange={(event) => setCompany(event.target.value)} />
+                  <Form.Control className="input-bar" type="text" placeholder="Company Name" name="company" onChange={(event) => setCompany(event.target.value)} />
                 </Form.Group>
                 <Form.Group>
                   <Form.Label>Job Description</Form.Label>
                   <Form.Control className="input-bar" type="text" placeholder="Job Description" name="jobDescription" onChange={(event) => setDescription(event.target.value)} />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label className="postType">Type</Form.Label>
-                  <Form.Control className="input-bar" id="type-end" as="select" name="workType" onChange={(event) => setType(event.target.value)}>
-                    <option>Frontend</option>
-                    <option>Backend</option>
-                    <option>Both</option>
-                  </Form.Control>
+                  <Form.Label>Contact</Form.Label>
+                  <Form.Control className="input-bar" type="text" placeholder="Contact Information" name="contact" onChange={(event) => setContact(event.target.value)} />
                 </Form.Group>
+                
                 <Form.Group>
                   <Form.Label>Language</Form.Label>
-                  <Form.Control className="input-bar" id="type-end" as="select" name="language" onChange={(event) => setLanguage(event.target.value)}>
-                    <option>JavaScript</option>
-                    <option>HTML</option>
-                    <option>React</option>
-                  </Form.Control>
+                  <DropdownMultiselect
+                      handleOnChange={(s) => setLanguage(s)}
+                      id="lang"
+                      options={[
+                        "JavaScript",
+                        "Python",
+                        "Swift",
+                        "HTML5",
+                        "SQL",
+                        "PHP",
+                        "Ruby",
+                        "C",
+                        "C++",
+                        "C#",
+                        "Visual Basic",
+                        "Java",
+                        "Objective C",
+                        "Perl",
+                      ]}
+                      name="lang"
+                    />
                   {/* <DropdownMultiselect name = "language" value={options} onChange={handleInput}
                     id="lang"
                     options={options}
@@ -118,6 +120,12 @@ const PostPage = () => {
                     </Card.Title>
                     <Card.Text id="job-description">
                      {description}
+                    </Card.Text>
+                    <Card.Text id="job-description">
+                      {languageString}
+                    </Card.Text>
+                    <Card.Text id="contact-info">
+                     {contact}
                     </Card.Text>
                   </Card.Body>
                 </Card>

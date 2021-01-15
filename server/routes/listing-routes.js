@@ -26,6 +26,28 @@ router
           success: false
         });
       });
+  })
+  .post("/:id", (req, res) => {
+    console.log("TEST", req.body);
+    Listing
+      .findByIdAndUpdate(req.params.id, {
+        $set: {
+          data: req.body
+      }
+      }
+      )
+      .then(data => {
+        res.json({
+          success: true,
+          data
+        });
+      })
+      .catch(err => {
+        console.log(err);
+        res.json({
+          success: false
+        });
+      });
   });
 
 
