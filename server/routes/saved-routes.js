@@ -24,13 +24,7 @@ router
         const users = await Users.findByIdAndUpdate(req.body.userID, {
           $push: {jobs: data._id}
         })
-        console.log(users)
-        // const user = await Users
-        //  .findById(req.body.userID)
-        
-        // user.jobs.push(data._id)
-        // await user.save();
-        
+        console.log("USERS", users)
         res.json({ success: true, data });
       })
       .catch(err => {

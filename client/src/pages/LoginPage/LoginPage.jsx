@@ -3,12 +3,11 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useHistory } from "react-router-dom";
-import API from "../../util/API";
 import NavBar from "../../components/HomeNavBar/HomeNavBar"
 import axios from "axios";
 import "./LoginPage.css"
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
@@ -20,7 +19,7 @@ const LoginPage = () => {
       let response = await axios.post(
         "/api/users/login",
         ({ email: username, password: password }),
-        );
+      );
       console.log(response);
       if (response.data.auth) {
         localStorage.setItem("JWTSCRT", response.data.token)
@@ -38,18 +37,18 @@ const LoginPage = () => {
   }
 
   return (
-      <div>
+    <div>
       <NavBar />
       <div className="loginForm">
         <Container>
           <Form>
-          <Form.Label>Welcome Back!</Form.Label>
+            <Form.Label>Welcome Back!</Form.Label>
             <Form.Group controlId="formBasicLogin">
-              <Form.Control  type="email" placeholder="Username" value={username} className="login-email" onChange={(e) => setUsername(e.target.value)}/>
+              <Form.Control type="email" placeholder="Username" value={username} className="login-email" onChange={(e) => setUsername(e.target.value)} />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control  type="password" placeholder="Password" value={password} className="login-password" onChange={(e) => setPassword(e.target.value)}/>
+              <Form.Control type="password" placeholder="Password" value={password} className="login-password" onChange={(e) => setPassword(e.target.value)} />
             </Form.Group>
             <br></br>
             <Button className="mb-5" id="login" variant="primary" type="login" onClick={login}>
@@ -61,8 +60,8 @@ const LoginPage = () => {
           <br></br>
         </Container>
       </div>
-      </div>
-    );
+    </div>
+  );
 }
 
 export default LoginPage;

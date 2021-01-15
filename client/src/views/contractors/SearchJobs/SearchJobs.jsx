@@ -23,17 +23,6 @@ const SearchJobs = () => {
               <Col>
                 <Form className="results p-3">
                   <Form.Group>
-                    <Form.Label className="jobType">Type</Form.Label>
-                    <Form.Control
-                      onChange={(e) => setSelectType(e.target.value)}
-                      className="option" id="type-end" as="select">
-                      <option>Frontend</option>
-                      <option>Backend</option>
-                      <option>Both</option>
-                    </Form.Control>
-                  </Form.Group>
-
-                  <Form.Group>
                     <Form.Label>Code Language</Form.Label>
                     <DropdownMultiselect
                       handleOnChange={(s) => setSelectArray(s)}
@@ -60,7 +49,7 @@ const SearchJobs = () => {
 
                   <Form.Group>
                     <Form.Label>Keywords</Form.Label>
-                    <Form.Control className="input-bar" id="keyword" placeholder="e.g. Per Hour, Remote Work, Etc...">
+                    <Form.Control className="input-bar" id="keyword" placeholder="e.g. react, frontend... ">
                     </Form.Control>
                   </Form.Group>
                   <Button variant="primary" id="search" className="mb-3" href={"/SearchResults?selectedLang=" + selectArray.toString() + "&jobType=" + selectType}>

@@ -43,6 +43,9 @@ const ContractorHome = () => {
                 <Card.Text>
                   {cardData.description}
                 </Card.Text>
+                <Card.Text>
+                  {cardData.contact} 
+                </Card.Text>
                 <Button variant="primary" onClick={() => handleUnsave(index)}>Unsave</Button>
               </Card.Body>
             </Card>

@@ -35,10 +35,11 @@ console.log(parsed);
       title: data[index]?.title,
       company: data[index]?.company,
       description: data[index]?.description,
+      contact: data[index]?.contact,
       type: data[index]?.type,
       language: data[index]?.language,
       pay: data[index]?.pay,
-      userID: user._id,
+      // userID: user._id,
     })
       .then(res => {
       console.log(res.data)
@@ -62,6 +63,12 @@ console.log(parsed);
               <Card.Subtitle className="mb-2 text-muted">{cardData.company}</Card.Subtitle>
               <Card.Text>
               {cardData.description}
+               </Card.Text>
+              <Card.Text>
+              {cardData.language}
+               </Card.Text>
+              <Card.Text>
+              {cardData.contact}
                </Card.Text>
               <Button variant="primary" onClick={() => handleSave(index)}>Save</Button>
             </Card.Body>

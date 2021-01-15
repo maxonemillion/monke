@@ -7,19 +7,17 @@ const newListing = new mongoose.Schema({
     },
     company: {
         type: String,
-        required: true
     },
     description: {
         type: String,
         required: true
     },
-    type: {
+    contact: {
         type: String,
         required: true
     },
     language: {
-        type: String,
-        required: true
+        type: String, 
     },
     pay: {
         type: String,
