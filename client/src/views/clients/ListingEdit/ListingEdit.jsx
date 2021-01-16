@@ -13,7 +13,7 @@ const ListingEdit = () => {
         setShowConfirm(!showConfirm);
     }
 const authorized = useContext(AuthContext);
-console.log(authorized);
+
   return (
     <div>
       <ClientNavBar />

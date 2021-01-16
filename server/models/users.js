@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
   },
   jobs: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Listings"
+    ref: "Saved"
   }]
 });
 

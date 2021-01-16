@@ -19,7 +19,7 @@ const SignupPage = () => {
         "/api/users/signup",
           ({ email: username, password: password, role: role }),
       )
-      console.log(response)
+
       if (role === "contractor") {
         history.push("/ContractorHome")
       } else {

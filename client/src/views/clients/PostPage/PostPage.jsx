@@ -27,20 +27,19 @@ const PostPage = () => {
     setShowConfirm(!showConfirm);
   }
 
-  const languageString = language.join(', ');
+  const languageString = language.join(", ")
 
   const addJob = () => {
-    console.log(languageString)
     API.postJob({
       title: title,
       company: company,
       description: description,
       contact: contact,
-      language: languageString,
+      language: language,
       pay: pay,
     })
       .then(res => {
-        console.log(res.data)
+
       })
   }
   

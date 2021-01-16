@@ -9,7 +9,7 @@ import DropdownMultiselect from "react-multiselect-dropdown-bootstrap";
 
 const SearchJobs = () => {
   const [selectArray, setSelectArray] = useState([]);
-  console.log(selectArray.toString());
+
   const [selectType, setSelectType] = useState("");
 
   return (

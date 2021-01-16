@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = {
     loginUser: ({ username, password }) => {
-        console.log("hello world", { username, password });
+
         return axios.post("/api/users/login", { username, password })
     },
     postJob: (newListing) => {
@@ -12,7 +12,7 @@ const API = {
         return axios.get("/api/listings/")
     },
     editJob: (id, updated) => {
-        return axios.post("/api/listings/" + id, {data: updated})
+        return axios.post("/api/listings/" + id, updated)
     },
     unlistJob: (id) => {
         return axios.delete("/api/listings/" + id)

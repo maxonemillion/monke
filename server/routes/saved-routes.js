@@ -12,29 +12,35 @@ router
         res.json({ success: false });
       });
   })
+  .get("/:id", async (req, res) => {
+
+    const userSaved = await Users.findById(req.params.id).populate("jobs")
+
+    res.json({ success: false, data: userSaved.jobs });
+  })
   .post("/", (req, res) => {
-    console.log({ ...req.body });
+
     Saved
       .create({
         ...req.body
       })
       .then(async data => {
-        console.log("USERID", req.body.userID, data)
+
 
         const users = await Users.findByIdAndUpdate(req.body.userID, {
           $push: {jobs: data._id}
         })
-        console.log("USERS", users)
+
         res.json({ success: true, data });
       })
       .catch(err => {
-        res.json({ success: false });
+        res.json({ success: false, err });
       });
   });
 
 router
   .delete('/:id', (req, res) => {
-    console.log(req.params);
+
     Saved
       .findByIdAndDelete(req.params.id)
       .then(data => {

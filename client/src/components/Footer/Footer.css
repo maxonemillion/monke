@@ -1,5 +1,5 @@
-.footer span {
-  bottom: 0;
+.footerDiv span {
+  /* bottom: 0;
   left: 0;
   right: 0;
   float: center;
@@ -9,5 +9,19 @@
   text-align: center;
   border-top: solid black 1px;
   font-family: copperplate;
-  background-color: #343a40;
+  background-color: #343a40; */
+  
+  position:fixed;
+  text-align: right;
+  color: rgb(0, 255, 221);
+ bottom: 0;
+  width: 100%
+
 }
+
+h5 {
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+

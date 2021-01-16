@@ -15,22 +15,22 @@ const ClientHome = () => {
   const [type, setType] = useState("")
   const [pay, setPay] = useState("")
   const [contact, setContact] = useState("")
-  const [language, setLanguage] = useState("")
+  const [language, setLanguage] = useState([])
 
   useEffect(() => {
-    console.log("yowdy")
+
     API.myListings()
       .then(res => {
-        console.log(res)
+
         setData(res.data)
-        console.log(res.data)
+
       })
   }, [])
 
   const handleRemove = (index) => {
     API.unlistJob(data[index]._id)
       .then(res => {
-        console.log(res.data)
+
         window.location.reload()
       })
       .catch(error => {
@@ -48,7 +48,8 @@ const ClientHome = () => {
       pay: pay
     })
       .then(res => {
-        console.log(res.data, "editJob")
+
+        window.location.reload()
       })
       .catch(error => {
         console.log(error);
@@ -56,7 +57,7 @@ const ClientHome = () => {
   }
 
   const authorized = useContext(AuthContext);
-  console.log(authorized);
+
 
   return (
     <div>
@@ -73,7 +74,7 @@ const ClientHome = () => {
                     { !editView ? 
                     <Card.Title>{cardData.title}</Card.Title>
                       : <h1 className="editsTitle"> Title
-                      <Form.Control className="input-bar" id="keyword" placeholder={cardData.title} onChange={(e) => setTitle(e.target.value)}>
+                      <Form.Control className="input-bar2" id="keyword" placeholder={cardData.title} onChange={(e) => setTitle(e.target.value)}>
                     </Form.Control>
                       </h1>
                     }
@@ -94,7 +95,7 @@ const ClientHome = () => {
                       className="mb-2 text-muted">{cardData.company}
                     </Card.Subtitle>
                     : <h1 className="edits"> Company
-                    <Form.Control className="input-bar" id="keyword" placeholder={cardData.company} onChange={(e) => setCompany(e.target.value)}>
+                    <Form.Control className="input-bar2" id="keyword" placeholder={cardData.company} onChange={(e) => setCompany(e.target.value)}>
                   </Form.Control>
                     </h1>
                   }
@@ -104,14 +105,14 @@ const ClientHome = () => {
                     {cardData.description}
                   </Card.Text>
                     : <h1 className="edits"> Description
-                    <Form.Control className="input-bar" id="keyword" placeholder={cardData.description} onChange={(e) => setDescription(e.target.value)}>
+                    <Form.Control className="input-bar2" id="keyword" placeholder={cardData.description} onChange={(e) => setDescription(e.target.value)}>
                     </Form.Control>
                     </h1> 
                   }
 
                   { !editView ? 
                   <Card.Text className="mb-2 text-muted">
-                    {cardData.language}
+                    {cardData.language.join(", ")}
                   </Card.Text>
                     : <h1 className="edits"> Languages
                        <DropdownMultiselect
@@ -144,7 +145,7 @@ const ClientHome = () => {
                     {cardData.contact}
                   </Card.Text>
                     : <h1 className="edits"> Contact
-                    <Form.Control className="input-bar" id="keyword" placeholder={cardData.contact} onChange={(e) => setLanguage(e.target.value)}>
+                    <Form.Control className="input-bar2" id="keyword" placeholder={cardData.contact} onChange={(e) => setContact(e.target.value)}>
                     </Form.Control>
                     </h1> 
                   }

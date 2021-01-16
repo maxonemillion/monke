@@ -9,9 +9,9 @@ import { AuthContext } from "../../../util/context";
 
 
 const SearchResults = (props) => {
-console.log(props.location.search)
+
 const parsed = queryString.parse(props.location.search, {arrayFormat: 'comma'});
-console.log(parsed);
+
   const [showConfirm, setShowConfirm] = useState(false);
   const [data, setData] = useState([]);
 
@@ -25,12 +25,12 @@ console.log(parsed);
     API.findJobs()
       .then(res => {
             setData(res.data)
-            console.log(res.data)
+
         })
 }, [])
 
   const handleSave = (index) => {
-    console.log("LABEL 4 CHRIS", user)
+
     API.saveJob({
       title: data[index]?.title,
       company: data[index]?.company,
@@ -39,11 +39,9 @@ console.log(parsed);
       type: data[index]?.type,
       language: data[index]?.language,
       pay: data[index]?.pay,
-      // userID: user._id,
+      userID: user._id,
     })
-      .then(res => {
-      console.log(res.data)
-    })
+
   }
 
   return (
@@ -64,8 +62,8 @@ console.log(parsed);
               <Card.Text>
               {cardData.description}
                </Card.Text>
-              <Card.Text>
-              {cardData.language}
+              <Card.Text className="mb-2 text-muted">
+              {cardData.language.join(", ")}
                </Card.Text>
               <Card.Text>
               {cardData.contact}
