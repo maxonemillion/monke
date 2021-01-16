@@ -7,7 +7,7 @@
 React application platform for exchange of goods and services. Client accounts may post, edit and remove job postings from our application. Contractor accoutns may view, save and contact clients about their listings.
 
 ## Installation
-App Deployed With Heroku: https://codemonke.herokuapp.com/
+App deployed with Heroku: https://codemonke.herokuapp.com/
 
 ## License
 MIT
