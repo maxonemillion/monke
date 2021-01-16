@@ -59,7 +59,7 @@ function App() {
     <AuthContext.Provider value={newUser}>
       <div className="App">
         <BackgroundVideo />
-        <Router>
+        <Router temp={newUser}>
           <Switch>
             <Route exact path="/" component={() => {
               if (newUser) {

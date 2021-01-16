@@ -5,11 +5,11 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <div>
+    <div className="footerDiv">
       <footer className="footer">
         <span>
           <br></br>
-          <h5>Blue Team Productions</h5>
+          <h5>Blue Team</h5>
           <br></br>
         </span>
       </footer>

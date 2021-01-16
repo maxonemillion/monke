@@ -32,11 +32,17 @@ router
     Listing
       .findByIdAndUpdate(req.params.id, {
         $set: {
-          data: req.body
+          title: req.body.title,
+          company: req.body.company,
+          description: req.body.description,
+          language: req.body.language,
+          contact: req.body.contact,
+          pay: req.body.pay,
       }
       }
       )
       .then(data => {
+        console.log("TEST2", data);
         res.json({
           success: true,
           data

@@ -16,9 +16,9 @@ const newListing = new mongoose.Schema({
         type: String,
         required: true
     },
-    language: {
+    language: [{
         type: String, 
-    },
+    }],
     pay: {
         type: String,
         required: true

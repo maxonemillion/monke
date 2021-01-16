@@ -12,7 +12,7 @@ const API = {
         return axios.get("/api/listings/")
     },
     editJob: (id, updated) => {
-        return axios.post("/api/listings/" + id, {data: updated})
+        return axios.post("/api/listings/" + id, updated)
     },
     unlistJob: (id) => {
         return axios.delete("/api/listings/" + id)

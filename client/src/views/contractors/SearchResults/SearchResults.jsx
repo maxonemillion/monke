@@ -39,7 +39,7 @@ console.log(parsed);
       type: data[index]?.type,
       language: data[index]?.language,
       pay: data[index]?.pay,
-      // userID: user._id,
+      userID: user._id,
     })
       .then(res => {
       console.log(res.data)
@@ -64,7 +64,7 @@ console.log(parsed);
               <Card.Text>
               {cardData.description}
                </Card.Text>
-              <Card.Text>
+              <Card.Text className="mb-2 text-muted">
               {cardData.language}
                </Card.Text>
               <Card.Text>
