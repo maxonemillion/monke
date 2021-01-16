@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Button, Card, Row, Container } from "react-bootstrap";
 import AlertDismissible from "../../../components/Alerts/JobSaved/JobSaved";
 import API from "../../../util/API";
 import "./SearchResults.css";
 import ContractorNavBar from "../../../components/ContractorNavBar"
 import queryString from "query-string";
-
+import { AuthContext } from "../../../util/context";
 
 
 const SearchResults = (props) => {
@@ -19,6 +19,8 @@ console.log(parsed);
     setShowConfirm(!showConfirm);
   }
 
+  const user = useContext(AuthContext)
+
   useEffect(() => {
     API.findJobs()
       .then(res => {
@@ -28,13 +30,16 @@ console.log(parsed);
 }, [])
 
   const handleSave = (index) => {
+    console.log("LABEL 4 CHRIS", user)
     API.saveJob({
       title: data[index]?.title,
       company: data[index]?.company,
       description: data[index]?.description,
+      contact: data[index]?.contact,
       type: data[index]?.type,
       language: data[index]?.language,
       pay: data[index]?.pay,
+      // userID: user._id,
     })
       .then(res => {
       console.log(res.data)
@@ -58,6 +63,12 @@ console.log(parsed);
               <Card.Subtitle className="mb-2 text-muted">{cardData.company}</Card.Subtitle>
               <Card.Text>
               {cardData.description}
+               </Card.Text>
+              <Card.Text>
+              {cardData.language}
+               </Card.Text>
+              <Card.Text>
+              {cardData.contact}
                </Card.Text>
               <Button variant="primary" onClick={() => handleSave(index)}>Save</Button>
             </Card.Body>

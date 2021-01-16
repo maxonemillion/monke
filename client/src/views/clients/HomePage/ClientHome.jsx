@@ -1,52 +1,181 @@
-import React, { useContext } from "react";
-import { Button, Card, Row } from "react-bootstrap";
+import React, { useContext, useState, useEffect } from "react";
+import { Button, Card, Row, Container, Form } from "react-bootstrap";
 import ClientNavBar from "../../../components/ClientNavBar"
-
-import { Link } from "react-router-dom";
-
+import API from "../../../util/API";
 import "./ClientHome.css";
-import {AuthContext} from "../../../util/context";
+import { AuthContext } from "../../../util/context";
+import DropdownMultiselect from "react-multiselect-dropdown-bootstrap"
 
 const ClientHome = () => {
+  const [data, setData] = useState([]);
+  const [editView, setEditView] = useState(false);
+  const [title, setTitle] = useState("")
+  const [company, setCompany] = useState("")
+  const [description, setDescription] = useState("")
+  const [type, setType] = useState("")
+  const [pay, setPay] = useState("")
+  const [contact, setContact] = useState("")
+  const [language, setLanguage] = useState("")
+
+  useEffect(() => {
+    console.log("yowdy")
+    API.myListings()
+      .then(res => {
+        console.log(res)
+        setData(res.data)
+        console.log(res.data)
+      })
+  }, [])
+
+  const handleRemove = (index) => {
+    API.unlistJob(data[index]._id)
+      .then(res => {
+        console.log(res.data)
+        window.location.reload()
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
+  const updateJob = (index) => {
+    API.editJob(data[index]._id, {
+      title: title,
+      company: company,
+      description: description,
+      language: language,
+      contact: contact,
+      pay: pay
+    })
+      .then(res => {
+        console.log(res.data, "editJob")
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
+
   const authorized = useContext(AuthContext);
   console.log(authorized);
+
   return (
     <div>
       <ClientNavBar />
-    <div>
-      <Row className="postPageRow">
-        <Link to="/PostPage">New Listing</Link>
-      </Row>
-      <h2>My Listings</h2>
-      <Card className="listing">
-        <a href="/ListingEdit" className="hyperCard">
-          <Card.Body className="text-lg-left">
-            <Row>
-              <Card.Title>React Website Design</Card.Title>
-              <Card className="mb-2 text-muted price">$69 / h</Card>
-            </Row>
-            <Card.Subtitle className="mb-2 text-muted">
-              Code Monkey LLC
-            </Card.Subtitle>
-            <Card.Text className="listingPreview">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Necessitatibus quaerat est consequatur adipisci vitae sit. Modi
-              blanditiis animi voluptas ipsum, eligendi neque enim laborum
-              voluptates assumenda nam, dolor magnam et! Lorem ipsum dolor sit
-              amet consectetur, adipisicing elit. Ipsum, omnis officia deleniti,
-              dicta at ut quae reprehenderit dolorum harum blanditiis ex fugiat
-              sed iure rerum quasi illo exercitationem veniam ducimus?
-            </Card.Text>
-            <Button variant="primary">View applicants</Button>
-            <Button variant="danger" href="/ListingEdit">
-              Edit
-            </Button>
-          </Card.Body>
-        </a>
-      </Card>
-      <br></br>
+      <div className="search-results">
+        <h2>My Listings</h2>
+        <Container>
+          {data.map((cardData, index) => {
+            return (
+              <Card className="resultsListing">
+                <Card.Body className="text-lg-left">
+                  <Row>
+                    
+                    { !editView ? 
+                    <Card.Title>{cardData.title}</Card.Title>
+                      : <h1 className="editsTitle"> Title
+                      <Form.Control className="input-bar" id="keyword" placeholder={cardData.title} onChange={(e) => setTitle(e.target.value)}>
+                    </Form.Control>
+                      </h1>
+                    }
+
+                    
+                    { !editView ?
+                      <Card
+                        className="mb-2 text-muted editPay">{cardData.pay}
+                      </Card>
+                      : <h1 className="edits"> Pay
+                        <Form.Control className="paybar" id="keyword" placeholder={cardData.pay} onChange={(e) => setPay(e.target.value)}>
+                    </Form.Control> </h1>}
+                    
+                  </Row>
+
+                  { !editView ?
+                    <Card.Subtitle
+                      className="mb-2 text-muted">{cardData.company}
+                    </Card.Subtitle>
+                    : <h1 className="edits"> Company
+                    <Form.Control className="input-bar" id="keyword" placeholder={cardData.company} onChange={(e) => setCompany(e.target.value)}>
+                  </Form.Control>
+                    </h1>
+                  }
+                  
+                  { !editView ? 
+                  <Card.Text> 
+                    {cardData.description}
+                  </Card.Text>
+                    : <h1 className="edits"> Description
+                    <Form.Control className="input-bar" id="keyword" placeholder={cardData.description} onChange={(e) => setDescription(e.target.value)}>
+                    </Form.Control>
+                    </h1> 
+                  }
+
+                  { !editView ? 
+                  <Card.Text className="mb-2 text-muted">
+                    {cardData.language}
+                  </Card.Text>
+                    : <h1 className="edits"> Languages
+                       <DropdownMultiselect
+                      handleOnChange={(s) => setLanguage(s)}
+                      id="lang"
+                      options={[
+                        "JavaScript",
+                        "Python",
+                        "Swift",
+                        "HTML5",
+                        "SQL",
+                        "PHP",
+                        "Ruby",
+                        "C",
+                        "C++",
+                        "C#",
+                        "Visual Basic",
+                        "Java",
+                        "Objective C",
+                        "Perl",
+                      ]}
+                      name="lang"
+                    />
+                    
+                    </h1> 
+                  }
+  
+                  { !editView ? 
+                  <Card.Text>
+                    {cardData.contact}
+                  </Card.Text>
+                    : <h1 className="edits"> Contact
+                    <Form.Control className="input-bar" id="keyword" placeholder={cardData.contact} onChange={(e) => setLanguage(e.target.value)}>
+                    </Form.Control>
+                    </h1> 
+                  }
+                  
+                  { !editView ? 
+                  
+                  <Button variant="primary" onClick={() => handleRemove(index)}>Remove</Button>
+                  : ""}
+                  
+                  { !editView ?
+                    <Button variant="primary" onClick={() => setEditView(!editView)}>Edit</Button>
+                    : 
+                    <Button variant="primary" onClick={() => { updateJob(index); setEditView(!editView) }}>Done</Button>
+                  }
+
+                  { !editView ?
+                    ""
+                    : 
+                    <Button variant="primary" onClick={() => setEditView(!editView)}>Cancel</Button>
+                  }
+                
+                  
+                </Card.Body>
+              </Card>
+            )
+          })}
+          <br></br>
+        </Container>
+      </div>
     </div>
-    </div>
+
   );
 }
 

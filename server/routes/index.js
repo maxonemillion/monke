@@ -5,7 +5,12 @@ const saved = require("./saved-routes")
 
 router.use("/api/users", users);
 router.use("/api/listings", listings);
-router.use("/api/saved", saved)
+router.use("/api/saved", saved);
+
+router.delete('/api/test', (req, res) => {
+    console.log('hit express');
+    res.sendStatus(200);
+});
 
 const db = require("../models")
 router.get("/test", async (req, res) => {

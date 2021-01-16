@@ -1,9 +1,8 @@
-const { Saved } = require("../models")
+const { Saved, Users } = require("../models")
 const router = require("express").Router();
 
 router
-  .route('/')
-  .get((req, res) => {
+  .get("/", (req, res) => {
     Saved
       .find({})
       .then(data => {
@@ -13,13 +12,19 @@ router
         res.json({ success: false });
       });
   })
-  .post((req, res) => {
+  .post("/", (req, res) => {
     console.log({ ...req.body });
     Saved
       .create({
         ...req.body
       })
-      .then(data => {
+      .then(async data => {
+        console.log("USERID", req.body.userID, data)
+
+        const users = await Users.findByIdAndUpdate(req.body.userID, {
+          $push: {jobs: data._id}
+        })
+        console.log("USERS", users)
         res.json({ success: true, data });
       })
       .catch(err => {
@@ -28,8 +33,7 @@ router
   });
 
 router
-  .route('/:id')
-  .delete((req, res) => {
+  .delete('/:id', (req, res) => {
     console.log(req.params);
     Saved
       .findByIdAndDelete(req.params.id)

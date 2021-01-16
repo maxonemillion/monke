@@ -29,8 +29,7 @@ console.log(authorized);
             <Card.Text>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus quaerat est consequatur adipisci vitae sit. Modi blanditiis animi voluptas ipsum, eligendi neque enim laborum voluptates assumenda nam, dolor magnam et! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, omnis officia deleniti, dicta at ut quae reprehenderit dolorum harum blanditiis ex fugiat sed iure rerum quasi illo exercitationem veniam ducimus?
              </Card.Text>
-            <Button variant="primary">View applicants</Button>
-            <Button variant="danger" onClick={displayConfirm}>Remove</Button>
+            <Button variant="danger" onClick={displayConfirm}>Done</Button>
           </Card.Body>
           </Card>
           {showConfirm ? <ConfirmRemove

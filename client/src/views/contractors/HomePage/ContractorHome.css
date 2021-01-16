@@ -16,16 +16,6 @@ h2 {
     color: black!important;
 }
 
-.searchJobs {
-    margin-bottom: 10px;
-    margin-left: 400px!important;
-    margin-right: 400px!important;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-
-}
-
 .center {
     align-items: center;
 }

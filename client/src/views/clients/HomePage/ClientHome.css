@@ -1,14 +1,9 @@
-.listing {
-    margin-left: 50px;
-    margin-right: 50px;
-    border-radius: 15px;
-}
-
 .row {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding-left: 15px;
+    padding-right: 15px
 }
 
 .price {
@@ -39,18 +34,24 @@ h2 {
     text-align: center;
 }
 
+.edits {
+    font-size: 15px;
+    color: rgb(0, 255, 221)!important;
+}
+
+.editsTitle {
+    font-size: 15px;
+    color: rgb(0, 255, 221)!important;
+    margin-right: 100px;
+    width: 300px
+}
+
 .hyperCard {
-    color: black !important;
+    color: black!important;
 }
 
 .hyperCard:link {
     text-decoration: none;
     text-shadow: none;
     color: black !important;
-}
-
-.postPageRow {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 65px;
 }
