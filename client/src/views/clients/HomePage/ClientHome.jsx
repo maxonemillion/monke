@@ -18,19 +18,19 @@ const ClientHome = () => {
   const [language, setLanguage] = useState([])
 
   useEffect(() => {
-    console.log("yowdy")
+
     API.myListings()
       .then(res => {
-        console.log(res)
+
         setData(res.data)
-        console.log(res.data)
+
       })
   }, [])
 
   const handleRemove = (index) => {
     API.unlistJob(data[index]._id)
       .then(res => {
-        console.log(res.data)
+
         window.location.reload()
       })
       .catch(error => {
@@ -48,7 +48,7 @@ const ClientHome = () => {
       pay: pay
     })
       .then(res => {
-        console.log(res.data, "editJob")
+
         window.location.reload()
       })
       .catch(error => {
@@ -57,7 +57,7 @@ const ClientHome = () => {
   }
 
   const authorized = useContext(AuthContext);
-  console.log(authorized);
+
 
   return (
     <div>
@@ -105,7 +105,7 @@ const ClientHome = () => {
                     {cardData.description}
                   </Card.Text>
                     : <h1 className="edits"> Description
-                    <Form.Control className="input-bar2" id="keyword" placeholder={cardData.description} onClick={(e) => console.log(e.target.value)} onChange={(e) => setDescription(e.target.value)}>
+                    <Form.Control className="input-bar2" id="keyword" placeholder={cardData.description} onChange={(e) => setDescription(e.target.value)}>
                     </Form.Control>
                     </h1> 
                   }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Jumbotron, Container, Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -10,21 +10,12 @@ import { AuthContext } from "../../util/context";
 
 const HomePage = (props) => {
 
-  console.log("PURBS,", props)
+
 
   const user = useContext(AuthContext)
   const history = useHistory();
 
-  useEffect(() => {
-    console.log("USER", user)
-    // if (user) {
-    //   if (user.role === "contractor") {
-    //     history.push("/ContractorHome")
-    //   } else {
-    //     history.push("/ClientHome")
-    //   }
-    // }
-  }, [])
+ 
 
   return (
     <div>

@@ -4,7 +4,7 @@ const { Users } = require("../models/")
 
 const auth = {
     login: () => {
-        console.log("Login", { Users })
+
         Users.create({
             email: req.body.text
         })

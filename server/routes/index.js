@@ -8,14 +8,14 @@ router.use("/api/listings", listings);
 router.use("/api/saved", saved);
 
 router.delete('/api/test', (req, res) => {
-    console.log('hit express');
+
     res.sendStatus(200);
 });
 
 const db = require("../models")
 router.get("/test", async (req, res) => {
     let stuff = await db.Users.findById("5ffd3b542c6ff7ab5e118dea").populate("jobs")
-    console.log(stuff.jobs)
+
     res.send("ok")
 })
 

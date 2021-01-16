@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = {
     loginUser: ({ username, password }) => {
-        console.log("hello world", { username, password });
+
         return axios.post("/api/users/login", { username, password })
     },
     postJob: (newListing) => {

@@ -8,9 +8,9 @@ async function db() {
       useFindAndModify: false,
       useCreateIndex: true
     });
-    console.log('successfully connected to db');
+
   } catch (error) {
-    console.log('error connecting to db: ');
+
     console.log(error);
   }
 }

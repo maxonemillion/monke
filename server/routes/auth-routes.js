@@ -11,9 +11,9 @@ const authMiddle = (req, res, next) => {
   try {
     if (req.query.token !== "null") {
 
-      console.log(req.query)
+
       let verified = JST.verify(req.query.token, process.env.JWTSCRT);
-      console.log(verified);
+
       req.user = verified;
       next();
     } else {
@@ -25,7 +25,7 @@ const authMiddle = (req, res, next) => {
   }
 }
 router.get("/verified", authMiddle, (req, res) => {
-  console.log("VERIFIED")
+
   res.json(req.user);
 })
 router.get("/test", authMiddle, (req, res) => {
@@ -36,7 +36,7 @@ router.get("/test", authMiddle, (req, res) => {
 // }) 
 
 router.post("/signup", (req, res) => {
-    console.log("TEST", req.body);
+
     bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
       Users
         .create({
@@ -65,10 +65,10 @@ router.post("/login", (req, res) => {
       }).then(data => {
         if (data) {
           bcrypt.compare(req.body.password, data.password, function (err, passwordsMatch) {
-            console.log("DATA", data);
+
             if (passwordsMatch) {
               const { role, _id, email } = data 
-              console.log("WHY", data)
+
               let token = jwt.sign({ role, _id, email }, process.env.JWTSCRT)
 
               res.json({

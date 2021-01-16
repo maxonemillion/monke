@@ -13,24 +13,24 @@ router
       });
   })
   .get("/:id", async (req, res) => {
-    console.log("ID", req.params)
+
     const userSaved = await Users.findById(req.params.id).populate("jobs")
-    console.log("userSaved", userSaved);  
+
     res.json({ success: false, data: userSaved.jobs });
   })
   .post("/", (req, res) => {
-    console.log({ ...req.body });
+
     Saved
       .create({
         ...req.body
       })
       .then(async data => {
-        console.log("USERID", req.body.userID, data)
+
 
         const users = await Users.findByIdAndUpdate(req.body.userID, {
           $push: {jobs: data._id}
         })
-        console.log("USERS", users)
+
         res.json({ success: true, data });
       })
       .catch(err => {
@@ -40,7 +40,7 @@ router
 
 router
   .delete('/:id', (req, res) => {
-    console.log("DELETE", req.params);
+
     Saved
       .findByIdAndDelete(req.params.id)
       .then(data => {

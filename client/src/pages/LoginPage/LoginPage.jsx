@@ -20,7 +20,7 @@ const LoginPage = (props) => {
         "/api/users/login",
         ({ email: username, password: password }),
       );
-      console.log(response);
+
       if (response.data.auth) {
         localStorage.setItem("JWTSCRT", response.data.token)
         if (response.data.role === "contractor") {
