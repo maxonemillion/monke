@@ -1,6 +1,6 @@
 ![CodeMonkeScreen](./client/public/codeMonkeScreen.png)
 
-# Project3
+# monke
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ## Description
 React Based Project Used By Clients and Contractors Alike. Clients May Post, Edit and Remove Job Postings From Our Application. Contractors May View, Save and Contact Client Listings. For Future Dev, We Would Like To Setup Functionality Where Contractors Can Create a Profile Making It Easier To Just Autopopulate Their Inormation Into Job Postings and Setting Up Functionality for a Chat Feature Where Contractors and Clients May Contact Each Other Directly.
