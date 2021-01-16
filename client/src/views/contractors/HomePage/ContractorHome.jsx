@@ -15,26 +15,15 @@ const ContractorHome = () => {
   useEffect(() => {
     API.mySavedJobs()
       .then(res => {
-        console.log(res.data)
+
         setData(res.data)
       })
   }, [])
 
-  // const render = () => {
-  //   if ((data.data?.length) || (data.data?.length !== 0) || (data.data?.length !== "undefined")) {
-  //     setDataExists(!dataExists)
-  //   } else setDataExists(dataExists)
-  // }
-
-  // console.log(dataExists, data.data?.length)
-  // console.log("data", digData.data)
-  // console.log("digData.length", digData.length)
-  // console.log(dataExists)
-
   const handleUnsave = (index) => {
     API.unsaveJob(data.data[index]._id)
       .then(res => {
-        console.log(res.data)
+
         window.location.reload()
       })
   }

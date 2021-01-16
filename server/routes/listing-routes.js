@@ -9,7 +9,7 @@ router
       .then(results => res.json(results))
   })
   .post("/", (req, res) => {
-    console.log("TEST", req.body);
+
     Listing
       .create({
         ...req.body
@@ -28,7 +28,7 @@ router
       });
   })
   .post("/:id", (req, res) => {
-    console.log("TEST", req.body);
+
     Listing
       .findByIdAndUpdate(req.params.id, {
         $set: {
@@ -42,7 +42,7 @@ router
       }
       )
       .then(data => {
-        console.log("TEST2", data);
+
         res.json({
           success: true,
           data
@@ -59,8 +59,8 @@ router
 
 router
   .delete("/:id", (req, res) => {
-    console.log('=========================')
-    console.log(req.params);
+
+
     Listing
       .findByIdAndDelete(req.params.id)
       .then(data => {

@@ -25,7 +25,7 @@ import { AuthContext } from "./util/context";
 import axios from "axios";
 
 const PrivateRoute = ({ component: Component, active, ...rest }) => {
-  console.log("COMPONENT", Component.name)
+
   return (
     <Route {...rest} render={(props) => {
       if (active) {
@@ -45,15 +45,15 @@ function App() {
 
   useEffect(() => {
     let storage = localStorage.getItem("JWTSCRT");
-    console.log("LOCALSTORAGE", localStorage)
+
     axios.get("/api/users/verified?token=" + storage).then((res) => {
-      console.log(res.data);
+
       setNewUser(res.data);
       setJWT(localStorage.JWTSCRT)
     }).catch(err => console.log(err))
   }, [])
 
-  console.log("APP USER", newUser)
+
 
   return (
     <AuthContext.Provider value={newUser}>

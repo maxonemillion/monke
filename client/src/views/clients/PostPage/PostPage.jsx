@@ -39,7 +39,7 @@ const PostPage = () => {
       pay: pay,
     })
       .then(res => {
-        console.log(res.data)
+
       })
   }
   
