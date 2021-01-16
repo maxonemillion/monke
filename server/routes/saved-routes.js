@@ -12,6 +12,12 @@ router
         res.json({ success: false });
       });
   })
+  .get("/:id", async (req, res) => {
+    console.log("ID", req.params)
+    const userSaved = await Users.findById(req.params.id).populate("jobs")
+    console.log("userSaved", userSaved);  
+    res.json({ success: false, data: userSaved.jobs });
+  })
   .post("/", (req, res) => {
     console.log({ ...req.body });
     Saved
@@ -28,13 +34,13 @@ router
         res.json({ success: true, data });
       })
       .catch(err => {
-        res.json({ success: false });
+        res.json({ success: false, err });
       });
   });
 
 router
   .delete('/:id', (req, res) => {
-    console.log(req.params);
+    console.log("DELETE", req.params);
     Saved
       .findByIdAndDelete(req.params.id)
       .then(data => {

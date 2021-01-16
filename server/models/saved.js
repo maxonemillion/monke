@@ -16,14 +16,14 @@ const savedJob = new mongoose.Schema({
         type: String,
         required: true
     },
-    language: {
+    language: [{
         type: String,
-    },
+    }],
     pay: {
         type: String,
         required: true
     }  
 })
 
-const Saved = mongoose.model('Saved Jobs', savedJob);
+const Saved = mongoose.model('Saved', savedJob);
 module.exports = Saved

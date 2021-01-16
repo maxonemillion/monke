@@ -16,6 +16,13 @@
     color: white;
 }
 
+.input-bar2 {
+    background-color: transparent;
+    backdrop-filter: blur(25px);
+    color: white;
+}
+
+
 .listingPreview {
     color: white;
     overflow: hidden;
@@ -34,9 +41,32 @@ h2 {
     text-align: center;
 }
 
+span {
+    color: white;
+}
+
 .edits {
     font-size: 15px;
     color: rgb(0, 255, 221)!important;
+}
+
+.dropdown-menu {
+    background-color: transparent;
+    backdrop-filter: blur(25px)!important;
+    position:relative;
+    color: white
+}
+
+.dropdown-item {
+    color: white!important
+}
+
+.dropdown-item:focus {
+    background-color: transparent;
+}
+
+.form-check:focus {
+    color: transparent;
 }
 
 .editsTitle {
