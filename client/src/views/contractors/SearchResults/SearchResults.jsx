@@ -63,7 +63,7 @@ const parsed = queryString.parse(props.location.search, {arrayFormat: 'comma'});
               {cardData.description}
                </Card.Text>
               <Card.Text className="mb-2 text-muted">
-              {cardData.language}
+              {cardData.language.join(", ")}
                </Card.Text>
               <Card.Text>
               {cardData.contact}
