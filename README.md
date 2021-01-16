@@ -13,9 +13,6 @@ App Deployed With Heroku: https://codemonke.herokuapp.com/
 MIT
 Copyright (c) 2020 
 
-## Contribution
-Max Daniel, Ky Lucero, Jordan Kirby, Ben Ivey, Amanda Greaves
+## Contact the Authors
+[Max Daniel](https://github.com/), [Ky Lucero](https://github.com/), [Jordan Kirby](https://github.com/), [Ben Ivey](https://github.com/), [Amanda Greaves](https://github.com/)
 
-## Questions
-For any questions the authors can be contacted at:
-GitHub: @[maxonemillion](https://github.com/), @[kileelucero](https://github.com/), @[Feizhi255](https://github.com/), @[benjaminivey00](https://github.com/), @[amandagreaves](https://github.com/)
